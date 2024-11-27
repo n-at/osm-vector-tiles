@@ -1,0 +1,12 @@
+/.idea/
+/.vscode/
+/*.osm.pbf
+/*.pmtiles
+
+/prepare/
+/serve/fonts/
+/serve/glyphs/
+/serve/tiles/
+/serve/nginx_cache/
+/serve/nginx_logs/
+/serve/static/node_modules/

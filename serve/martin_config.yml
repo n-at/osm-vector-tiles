@@ -1,0 +1,14 @@
+keep_alive: 75
+listen_addresses: '0.0.0.0:3000'
+base_path: /tiles
+worker_processes: 8
+cache_size_mb: 1024
+preferred_encoding: gzip
+pmtiles:
+  paths:
+  - /martin/tiles
+fonts:
+  - /martin/fonts
+sprites:
+  paths:
+  - /martin/glyphs

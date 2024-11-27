@@ -1,0 +1,23 @@
+services:
+  nginx:
+    image: "nginx:alpine"
+    container_name: "martin-nginx"
+    volumes:
+    - "./nginx_vhost:/etc/nginx/conf.d"
+    - "./nginx_logs:/var/log/nginx"
+    - "./nginx_cache:/var/cache/nginx"
+    - "./static:/static"
+    ports:
+    - "8080:80"
+    restart: unless-stopped
+
+  martin:
+    image: "ghcr.io/maplibre/martin:v0.14.2"
+    container_name: "martin"
+    volumes:
+    - "./tiles:/martin/tiles"
+    - "./fonts:/martin/fonts"
+    - "./glyphs:/martin/glyphs"
+    - "./martin_config.yml:/martin/config.yml"
+    command: "--config /martin/config.yml"
+    restart: unless-stopped
