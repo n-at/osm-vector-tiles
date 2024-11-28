@@ -2519,6 +2519,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -2671,6 +2675,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -2751,6 +2759,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -2822,6 +2834,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -2885,6 +2901,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -2960,6 +2980,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -3032,6 +3056,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -3124,6 +3152,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -3199,6 +3231,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -3286,6 +3322,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -3369,6 +3409,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -3593,6 +3637,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -3740,6 +3788,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -3910,7 +3962,7 @@
                   ],
                   [
                       16,
-                      "{name}"
+                      "{name:latin}"
                   ]
               ]
           },
@@ -3981,6 +4033,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -4061,6 +4117,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -4125,6 +4185,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -4192,6 +4256,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
@@ -4280,6 +4348,10 @@
                   "name:en"
               ],
               [
+                "get",
+                "name:latin"
+              ],
+              [
                   "get",
                   "name"
               ]
@@ -4340,6 +4412,10 @@
               [
                   "get",
                   "name:en"
+              ],
+              [
+                "get",
+                "name:latin"
               ],
               [
                   "get",
