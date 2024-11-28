@@ -24,7 +24,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "http://localhost:8080/tiles/cyprus-latest"
+      "url": "http://localhost:8080/tiles/planet-2024-07-22"
     }
   },
   "sprite": "http://localhost:8080/tiles/sprite/glyphs",
