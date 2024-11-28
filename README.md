@@ -8,7 +8,8 @@
 + [maplibre/martin](https://github.com/maplibre/martin) в качестве сервера
 + [maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js) для отображения карты
 + [openmaptiles/fonts](https://github.com/openmaptiles/fonts) - шрифты
-+ [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) - тема
++ [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) - тема и иконки
++ [openmaptiles/openmaptiles](https://github.com/openmaptiles/openmaptiles/tree/master/style) - иконки OSM Carto
 
 ## Подготовка к созданию карты
 
