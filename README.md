@@ -4,7 +4,7 @@
 
 Используется:
 
-+ [systemed/tilemaker](https://github.com/systemed/tilemaker) для преобразования pbf в pmtiles
++ [onthegomap/planetiler](https://github.com/onthegomap/planetiler) для преобразования osm.pbf в pmtiles
 + [maplibre/martin](https://github.com/maplibre/martin) в качестве сервера
 + [maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js) для отображения карты
 + [openmaptiles/fonts](https://github.com/openmaptiles/fonts) - шрифты
@@ -14,25 +14,25 @@
 ## Подготовка к созданию карты
 
 ```bash
-./prepare.sh
-```
+mkdir -m 0777 prepare
 
-В скриптах скачивания контуров берегов может потребоваться удалить `--proto '=https' --tlsv1.3` (если скачивание не идет).
+cd prepare
+
+wget https://github.com/onthegomap/planetiler/releases/latest/download/planetiler.jar
+
+wget "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
+#wget "https://download.geofabrik.de/russia-latest.osm.pbf"
+#wget https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
+```
 
 ## Создание векторных карт
 
 ```bash
-docker run -it --rm --pull always -v $(pwd)/prepare:/data -w /data \
-    ghcr.io/systemed/tilemaker:master \
-    /data/cyprus-latest.osm.pbf \
-    --output /data/cyprus-latest.pmtiles \
-    --store /data/store
+docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
+    java -Xmx1g -jar planetiler.jar --download --output cyprus-latest.pmtiles --osm-path cyprus-latest.osm.pbf
 
-# docker run -it --rm --pull always -v $(pwd)/prepare:/data -w /data \
-#     ghcr.io/systemed/tilemaker:master \
-#     /data/russia-latest.osm.pbf \
-#     --output /data/russia-latest.pmtiles \
-#     --store /data/store
+docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
+    java -Xmx4g -jar planetiler.jar --download --output russia-latest.pmtiles --osm-path russia-latest.osm.pbf
 ```
 
 Будут созданы файлы `.pmtiles`
