@@ -37,15 +37,27 @@ wget https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
 ```bash
 #Кипр (для тестирования), ~10 минут
 docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
-    java -Xmx1g -jar planetiler.jar --download --output cyprus-latest.pmtiles --osm-path cyprus-latest.osm.pbf
+    java -Xmx1g -jar planetiler.jar --download \
+    --fetch-wikidata \
+    --nodemap-type=array --storage=ram \
+    --output cyprus-latest.pmtiles \
+    --osm-path cyprus-latest.osm.pbf 
 
 #Россия, ~1 час
 docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
-    java -Xmx4g -jar planetiler.jar --download --output russia-latest.pmtiles --osm-path russia-latest.osm.pbf
+    java -Xmx4g -jar planetiler.jar \
+    --download --fetch-wikidata \
+    --nodemap-type=array --storage=ram \
+    --output russia-latest.pmtiles \
+    --osm-path russia-latest.osm.pbf 
 
 #Весь мир
 docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
-    java -Xmx40g -jar planetiler.jar --download --output planet.pmtiles --osm-path planet.osm.pbf
+    java -Xmx40g -jar planetiler.jar \
+    --download --fetch-wikidata \
+    --nodemap-type=array --storage=mmap \
+    --output planet.pmtiles \
+    --osm-path planet.osm.pbf 
 ```
 
 Будут созданы файлы `.pmtiles`
