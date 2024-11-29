@@ -19,12 +19,12 @@
         style: '../style-russia.json',
         center: [28.332795, 57.819312],
         zoom: 1,
-        attributionControl: {
-            compact: true, 
-            customAttribution: "Style © <a href='http://openmaptiles.org/'>OpenMapTiles</a>",
-        }
     });
     map.addControl(new maplibregl.NavigationControl());
+    map.addControl(new maplibregl.ScaleControl({
+        unit: 'metric',
+        maxWidth: 100,
+    }));
 </script>
 </body>
 </html>
