@@ -40,7 +40,18 @@ docker run -it --rm -v $(pwd)/prepare:/data -w /data openjdk:21 \
 ## Подготовка сервера
 
 ```bash
-./serve.sh
+cd serve
+
+mkdir -m 0777 nginx_cache nginx_logs
+
+git clone "https://github.com/openmaptiles/fonts" fonts
+
+mv ../prepare/cyprus-latest.pmtiles tiles/
+# mv ../prepare/russia-latest.pmtiles tiles/
+# mv ../prepare/planet.pmtiles tiles/
+
+cd static
+npm install
 ```
 
 ## Запуск сервера
