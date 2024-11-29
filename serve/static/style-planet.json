@@ -1874,7 +1874,25 @@
       "layout": {
         "symbol-placement": "line",
         "symbol-spacing": 350,
-        "text-field": "{name:latin} {name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Italic"],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -1896,7 +1914,25 @@
       "layout": {
         "symbol-placement": "line",
         "symbol-spacing": 350,
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Italic"],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -1918,7 +1954,25 @@
       "layout": {
         "symbol-placement": "point",
         "symbol-spacing": 350,
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
         "text-font": ["Noto Sans Italic"],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -1940,7 +1994,25 @@
       "layout": {
         "symbol-placement": "point",
         "symbol-spacing": 350,
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Italic"],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -2171,7 +2243,25 @@
         "icon-image": "airport",
         "icon-size": 1,
         "text-anchor": "top",
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
         "text-offset": [0, 0.6],
@@ -2204,7 +2294,25 @@
         "continent"
       ],
       "layout": {
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
@@ -2226,7 +2334,25 @@
       "source-layer": "place",
       "filter": ["==", "class", "village"],
       "layout": {
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]},
@@ -2246,7 +2372,25 @@
       "source-layer": "place",
       "filter": ["==", "class", "town"],
       "layout": {
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 14], [15, 24]]},
@@ -2266,7 +2410,25 @@
       "source-layer": "place",
       "filter": ["all", ["!=", "capital", 2], ["==", "class", "city"]],
       "layout": {
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
@@ -2289,7 +2451,25 @@
         "icon-image": "star",
         "icon-size": 0.8,
         "text-anchor": "left",
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-offset": [0.4, 0],
@@ -2310,7 +2490,25 @@
       "source-layer": "place",
       "filter": ["in", "class", "state"],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
@@ -2337,7 +2535,25 @@
         ["!has", "iso_a2"]
       ],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[3, 11], [7, 17]]},
@@ -2364,7 +2580,25 @@
         ["has", "iso_a2"]
       ],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[3, 11], [7, 17]]},
@@ -2391,7 +2625,25 @@
         ["has", "iso_a2"]
       ],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[2, 11], [5, 17]]},
@@ -2418,7 +2670,25 @@
         ["has", "iso_a2"]
       ],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[1, 11], [4, 17]]},
@@ -2441,7 +2711,25 @@
       "maxzoom": 1,
       "filter": ["==", "class", "continent"],
       "layout": {
-        "text-field": "{name:latin}",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ]
+        ],
         "text-font": ["Noto Sans Bold"],
         "text-max-width": 6.25,
         "text-size": 14,
@@ -2542,6 +2830,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -2700,6 +2992,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -2784,6 +3080,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -2859,6 +3159,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -2926,6 +3230,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -3006,6 +3314,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -3082,6 +3394,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -3178,6 +3494,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -3257,6 +3577,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -3348,11 +3672,15 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
-                "get",
-                "name:latin"
+                  "get",
+                  "name:latin"
               ],
               [
                   "get",
@@ -3437,11 +3765,15 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
-                "get",
-                "name:latin"
+                  "get",
+                  "name:latin"
               ],
               [
                   "get",
@@ -3524,18 +3856,25 @@
               ]
           ],
           "text-anchor": "top",
-          "text-field": {
-              "stops": [
-                  [
-                      15,
-                      ""
-                  ],
-                  [
-                      16,
-                      "{name}"
-                  ]
+          "text-field": [
+              "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
+                  "name:en"
+              ],
+              [
+                  "get",
+                  "name:latin"
+              ],
+              [
+                  "get",
+                  "name"
               ]
-          },
+          ],
           "text-font": [
               "Open Sans Semibold",
               "Noto Sans Bold"
@@ -3663,11 +4002,15 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
-                "get",
-                "name:latin"
+                  "get",
+                  "name:latin"
               ],
               [
                   "get",
@@ -3816,11 +4159,15 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
-                "get",
-                "name:latin"
+                  "get",
+                  "name:latin"
               ],
               [
                   "get",
@@ -3908,18 +4255,25 @@
               ]
           ],
           "text-anchor": "top",
-          "text-field": {
-              "stops": [
-                  [
-                      17,
-                      ""
-                  ],
-                  [
-                      18,
-                      "{name}"
-                  ]
+          "text-field": [
+              "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
+                  "name:en"
+              ],
+              [
+                  "get",
+                  "name:latin"
+              ],
+              [
+                  "get",
+                  "name"
               ]
-          },
+          ],
           "text-font": [
               "Open Sans Semibold",
               "Noto Sans Bold"
@@ -3983,18 +4337,25 @@
           ],
           "text-allow-overlap": false,
           "text-anchor": "top",
-          "text-field": {
-              "stops": [
-                  [
-                      15,
-                      ""
-                  ],
-                  [
-                      16,
-                      "{name:latin}"
-                  ]
+          "text-field": [
+              "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
+                  "name:en"
+              ],
+              [
+                  "get",
+                  "name:latin"
+              ],
+              [
+                  "get",
+                  "name"
               ]
-          },
+          ],
           "text-font": [
               "Open Sans Semibold",
               "Noto Sans Bold"
@@ -4059,6 +4420,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -4143,6 +4508,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -4211,6 +4580,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -4282,6 +4655,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
@@ -4374,6 +4751,10 @@
               "coalesce",
               [
                   "get",
+                  "name:ru"
+              ],
+              [
+                  "get",
                   "name:en"
               ],
               [
@@ -4438,6 +4819,10 @@
           "text-anchor": "top",
           "text-field": [
               "coalesce",
+              [
+                  "get",
+                  "name:ru"
+              ],
               [
                   "get",
                   "name:en"
