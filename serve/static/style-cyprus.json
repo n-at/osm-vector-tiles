@@ -2920,17 +2920,17 @@
               "Noto Sans Regular"
           ],
           "text-ignore-placement": false,
-          "text-line-height": -0.15,
-          "text-padding": 3,
+          "text-line-height": 0.50,
+          "text-padding": 5,
           "text-size": {
               "stops": [
                   [
                       17,
-                      9
+                      11
                   ],
                   [
                       22,
-                      11
+                      12
                   ]
               ]
           }
