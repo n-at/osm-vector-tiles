@@ -9,3 +9,4 @@
 /serve/nginx_cache/
 /serve/nginx_logs/
 /serve/static/node_modules/
+/osrm/
