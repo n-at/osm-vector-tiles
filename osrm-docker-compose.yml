@@ -1,0 +1,53 @@
+services:
+  osrm-cyprus-car:
+    container_name: "osrm-cyprus-car"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-car:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+  osrm-cyprus-bicycle:
+    container_name: "osrm-cyprus-bicycle"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-bicycle:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+  osrm-cyprus-foot:
+    container_name: "osrm-cyprus-foot"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-foot:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+  osrm-russia-car:
+    container_name: "osrm-russia-car"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-car:/data"
+    command: "osrm-routed --algorithm mld /data/russia-latest.osrm"
+    restart: unless-stopped
+
+  osrm-russia-bicycle:
+    container_name: "osrm-russia-bicycle"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-bicycle:/data"
+    command: "osrm-routed --algorithm mld /data/russia-latest.osrm"
+    restart: unless-stopped
+
+  osrm-russia-foot:
+    container_name: "osrm-russia-foot"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-foot:/data"
+    command: "osrm-routed --algorithm mld /data/russia-latest.osrm"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network

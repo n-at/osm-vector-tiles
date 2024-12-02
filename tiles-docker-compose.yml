@@ -1,0 +1,28 @@
+services:
+  nginx:
+    image: "nginx:alpine"
+    container_name: "martin-nginx"
+    volumes:
+    - "./serve/nginx_vhost:/etc/nginx/conf.d"
+    - "./serve/nginx_logs:/var/log/nginx"
+    - "./serve/nginx_cache:/var/cache/nginx"
+    - "./serve/static:/static"
+    ports:
+    - "8080:80"
+    restart: unless-stopped
+
+  martin:
+    image: "ghcr.io/maplibre/martin:v0.14.2"
+    container_name: "martin"
+    volumes:
+    - "./serve/tiles:/martin/tiles"
+    - "./serve/fonts:/martin/fonts"
+    - "./serve/glyphs:/martin/glyphs"
+    - "./serve/martin_config.yml:/martin/config.yml"
+    command: "--config /martin/config.yml"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: "osm-network"

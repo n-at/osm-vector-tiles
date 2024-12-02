@@ -54,7 +54,7 @@ docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /dat
     --osm-path russia-latest.osm.pbf \
     --output /tiles/russia-latest.pmtiles
 
-#Весь мир, ~5 часов
+#Весь мир, ~5 часов (16 ядер, 40ГБ RAM, ~500ГБ SSD)
 docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
     openjdk:21 \
     java -Xmx40g -jar planetiler.jar \
@@ -81,14 +81,32 @@ ln -s ../../prepare/cyprus-latest.osm.pbf osrm/cyprus-foot/cyprus-latest.osm.pbf
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/car.lua /data/osrm/cyprus-car/cyprus-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/cyprus-car/cyprus-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/cyprus-car/cyprus-latest.osrm
 
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/bicycle.lua /data/osrm/cyprus-bicycle/cyprus-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/cyprus-bicycle/cyprus-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/cyprus-bicycle/cyprus-latest.osrm
 
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/foot.lua /data/osrm/cyprus-foot/cyprus-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/cyprus-foot/cyprus-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/cyprus-foot/cyprus-latest.osrm
 
 #Россия, ~1час
 
@@ -100,18 +118,36 @@ ln -s ../../prepare/russia-latest.osm.pbf osrm/russia-foot/russia-latest.osm.pbf
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/car.lua /data/osrm/russia-car/russia-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-car/russia-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-car/russia-latest.osrm
 
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/bicycle.lua /data/osrm/russia-bicycle/russia-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-bicycle/russia-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-bicycle/russia-latest.osrm
 
 docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-extract -p /opt/foot.lua /data/osrm/russia-foot/russia-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-foot/russia-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-foot/russia-latest.osrm
 
-#Весь мир 
+#Весь мир
 
-#TODO - RAM required
+#TODO >40GB RAM required
 
 ```
 
@@ -134,8 +170,9 @@ cd ../..
 ## Запуск сервера
 
 ```bash
-cd serve
-docker compose up -d
+docker network create osm-network
+docker compose -f tiles-docker-compose.yml up -d
+docker compose -f osrm-docker-compose.yml up -d
 ```
 
 Открыть http://localhost:8080/
