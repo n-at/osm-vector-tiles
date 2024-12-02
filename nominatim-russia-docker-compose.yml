@@ -1,0 +1,29 @@
+services:
+  nominatim-russia:
+    image: "mediagis/nominatim:4.5"
+    container_name: "nominatim-russia"
+    volumes:
+      - "./prepare/russia-latest.osm.pbf:/nominatim/data/russia-latest.osm.pbf"
+      - "./nominatim/wikimedia-importance.sql.gz:/nominatim/data/wikimedia-importance.sql.gz"
+      - "./nominatim/secondary_importance.sql.gz:/nominatim/data/secondary_importance.sql.gz"
+      # - "./nominatim/russia-flatnode:/nominatim/flatnode"
+      # - "./nominatim/russia-data:/var/lib/postgresql/16/main"
+    environment:
+      NOMINATIM_PASSWORD: "nominatim"
+      PBF_PATH: "/nominatim/data/russia-latest.osm.pbf"
+      IMPORT_WIKIPEDIA: "/nominatim/data/wikimedia-importance.sql.gz"
+      UPDATE_MODE: "none"
+      FREEZE: "true"
+      REVERSE_ONLY: "true"
+      IMPORT_STYLE: "full"
+      POSTGRES_SHARED_BUFFERS: "4GB"
+      POSTGRES_MAINTENANCE_WORK_MEM: "512MB"
+      POSTGRES_AUTOVACUUM_WORK_MEM: "512MB"
+      POSTGRES_WORK_MEM: "50MB"
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "4GB"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network

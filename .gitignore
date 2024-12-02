@@ -10,3 +10,5 @@
 /serve/nginx_logs/
 /serve/static/node_modules/
 /osrm/
+/postgres/
+/nominatim/

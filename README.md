@@ -2,6 +2,10 @@
 
 Пример подготовки векторных карт на основе OpenStreetMap.
 
+Также настройка и подключение OSRM для построения маршрутов.
+
+Также настройка и подключение Nominatim для прямого и обратного геокодирования.
+
 Используется:
 
 + [onthegomap/planetiler](https://github.com/onthegomap/planetiler) для преобразования osm.pbf в pmtiles (Apache-2.0)
@@ -11,6 +15,7 @@
 + [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) - тема и иконки (BSD-3-Clause, CC-BY 4.0)
 + [gravitystorm/openstreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto) - иконки оригинальной темы OSM Carto (CC0)
 + [Project-OSRM/osrm-backend](https://github.com/Project-OSRM/osrm-backend) - построение маршрутов
++ [osm-search/Nominatim](https://github.com/osm-search/Nominatim) - геокодирование
 
 ## Подготовка к созданию карты
 
@@ -65,7 +70,7 @@ docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /dat
 
 Будут созданы файлы `.pmtiles`
 
-## Создание маршрутов
+## Подготовка и запуск сервиса построения маршрутов
 
 ```bash
 
@@ -149,6 +154,31 @@ docker run -it --rm -v $(pwd):/data \
 
 #TODO >40GB RAM required
 
+#Запуск
+
+docker compose -f osrm-docker-compose.yml up -d
+
+```
+
+## Создание БД и запуск сервиса геокодирования
+
+```bash
+mkdir -m 0777 nominatim
+
+wget -O "nominatim/wikimedia-importance.sql.gz" "https://nominatim.org/data/wikimedia-importance.sql.gz"
+wget -O "nominatim/secondary_importance.sql.gz" "https://nominatim.org/data/wikimedia-secondary-importance.sql.gz"
+
+#Кипр (для тестирования) ~10 минут
+mkdir -m 0777 nominatim/cyprus-flatnode nominatim/cyprus-data
+docker compose -f nominatim-cyprus-docker-compose.yml up -d
+
+#Россия
+mkdir -m 0777 nominatim/russia-flatnode nominatim/russia-data
+docker compose -f nominatim-russia-docker-compose.yml up -d
+
+#Весь мир
+
+#TODO
 ```
 
 ## Подготовка сервера
@@ -172,7 +202,6 @@ cd ../..
 ```bash
 docker network create osm-network
 docker compose -f tiles-docker-compose.yml up -d
-docker compose -f osrm-docker-compose.yml up -d
 ```
 
 Открыть http://localhost:8080/
