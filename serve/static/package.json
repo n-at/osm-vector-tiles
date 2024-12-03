@@ -9,6 +9,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@maplibre/maplibre-gl-directions": "^0.7.1",
+    "@maplibre/maplibre-gl-geocoder": "^1.7.0",
+    "@maplibre/maplibre-gl-inspect": "^1.7.0",
     "maplibre-gl": "^4.7.1"
   }
 }
