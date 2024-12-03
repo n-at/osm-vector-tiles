@@ -36,6 +36,9 @@ wget "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
 #Россия (на geofabrik.de границы до 2022 года)
 wget "https://download.geofabrik.de/russia-latest.osm.pbf"
 
+#Россия, СЗФО
+wget -O "russia-szfo-latest.osm.pbf" "https://download.geofabrik.de/russia/northwestern-fed-district-latest.osm.pbf"
+
 #Весь мир
 wget https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
 
@@ -51,7 +54,7 @@ mkdir -m 0777 serve/tiles
 docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
     openjdk:21 \
     java -Xmx1g -jar planetiler.jar \
-    --download --fetch-wikidata --nodemap-type=array --storage=ram \
+    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
     --osm-path cyprus-latest.osm.pbf \
     --output /tiles/cyprus-latest.pmtiles
 
@@ -59,9 +62,17 @@ docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /dat
 docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
     openjdk:21 \
     java -Xmx8g -jar planetiler.jar \
-    --download --fetch-wikidata --nodemap-type=array --storage=ram \
+    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
     --osm-path russia-latest.osm.pbf \
     --output /tiles/russia-latest.pmtiles
+
+#Россия, СЗФО, ~15-20 минут
+docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
+    openjdk:21 \
+    java -Xmx8g -jar planetiler.jar \
+    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
+    --osm-path russia-szfo-latest.osm.pbf \
+    --output /tiles/russia-szfo-latest.pmtiles
 
 #Весь мир, ~5 часов (16 ядер, 40ГБ RAM, ~500ГБ SSD)
 docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
@@ -152,13 +163,88 @@ docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-customize /data/osrm/russia-foot/russia-latest.osrm
 
+#Россия (СЗФО), ~10-15 минут
+
+mkdir -m 0777 osrm/russia-szfo-car osrm/russia-szfo-bicycle osrm/russia-szfo-foot
+ln -s ../../prepare/russia-szfo-latest.osm.pbf osrm/russia-szfo-car/russia-szfo-latest.osm.pbf
+ln -s ../../prepare/russia-szfo-latest.osm.pbf osrm/russia-szfo-bicycle/russia-szfo-latest.osm.pbf
+ln -s ../../prepare/russia-szfo-latest.osm.pbf osrm/russia-szfo-foot/russia-szfo-latest.osm.pbf
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/car.lua /data/osrm/russia-szfo-car/russia-szfo-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-szfo-car/russia-szfo-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-szfo-car/russia-szfo-latest.osrm
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/bicycle.lua /data/osrm/russia-szfo-bicycle/russia-szfo-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-szfo-bicycle/russia-szfo-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-szfo-bicycle/russia-szfo-latest.osrm
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/foot.lua /data/osrm/russia-szfo-foot/russia-szfo-latest.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/russia-szfo-foot/russia-szfo-latest.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/russia-szfo-foot/russia-szfo-latest.osrm
+
 #Весь мир
 
 #TODO >40GB RAM required
 
+mkdir -m 0777 osrm/planet-car osrm/planet-bicycle osrm/planet-foot
+ln -s ../../prepare/planet.osm.pbf osrm/planet-car/planet.osm.pbf
+ln -s ../../prepare/planet.osm.pbf osrm/planet-bicycle/planet.osm.pbf
+ln -s ../../prepare/planet.osm.pbf osrm/planet-foot/planet.osm.pbf
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/car.lua /data/osrm/planet-car/planet.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/planet-car/planet.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/planet-car/planet.osrm
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/bicycle.lua /data/osrm/planet-bicycle/planet.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/planet-bicycle/planet.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/planet-bicycle/planet.osrm
+
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-extract -p /opt/foot.lua /data/osrm/planet-foot/planet.osm.pbf
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-partition /data/osrm/planet-foot/planet.osrm
+docker run -it --rm -v $(pwd):/data \
+  ghcr.io/project-osrm/osrm-backend \
+  osrm-customize /data/osrm/planet-foot/planet.osrm
+
 #Запуск
 
-docker compose -f osrm-docker-compose.yml up -d
+docker compose -f osrm-cyprus-docker-compose.yml up -d
+docker compose -f osrm-russia-docker-compose.yml up -d
+docker compose -f osrm-russia-szfo-docker-compose.yml up -d
+docker compose -f osrm-planet-docker-compose.yml up -d
 ```
 
 ## Создание БД и запуск сервиса геокодирования
@@ -177,9 +263,16 @@ docker compose -f nominatim-cyprus-docker-compose.yml up -d
 mkdir -m 0777 nominatim/russia-flatnode nominatim/russia-data
 docker compose -f nominatim-russia-docker-compose.yml up -d
 
+#Россия (СЗФО) ~30 минут
+mkdir -m 0777 nominatim/russia-szfo-flatnode nominatim/russia-szfo-data
+docker compose -f nominatim-russia-szfo-docker-compose.yml up -d
+
 #Весь мир
 
 #TODO >40GB RAM required
+
+mkdir -m 0777 nominatim/planet-flatnode nominatim/planet-data
+docker compose -f nominatim-planet-docker-compose.yml up -d
 ```
 
 ## Подготовка сервера

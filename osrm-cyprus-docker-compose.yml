@@ -1,0 +1,29 @@
+services:
+  osrm-cyprus-car:
+    container_name: "osrm-cyprus-car"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-car:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+  osrm-cyprus-bicycle:
+    container_name: "osrm-cyprus-bicycle"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-bicycle:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+  osrm-cyprus-foot:
+    container_name: "osrm-cyprus-foot"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/cyprus-foot:/data"
+    command: "osrm-routed --algorithm mld /data/cyprus-latest.osrm"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network

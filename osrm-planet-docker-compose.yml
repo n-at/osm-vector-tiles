@@ -1,0 +1,29 @@
+services:
+  osrm-planet-car:
+    container_name: "osrm-planet-car"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/planet-car:/data"
+    command: "osrm-routed --algorithm mld /data/planet.osrm"
+    restart: unless-stopped
+
+  osrm-planet-bicycle:
+    container_name: "osrm-planet-bicycle"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/planet-bicycle:/data"
+    command: "osrm-routed --algorithm mld /data/planet.osrm"
+    restart: unless-stopped
+
+  osrm-planet-foot:
+    container_name: "osrm-planet-foot"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/planet-foot:/data"
+    command: "osrm-routed --algorithm mld /data/planet.osrm"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network

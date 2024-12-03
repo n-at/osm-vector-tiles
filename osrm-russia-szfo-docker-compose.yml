@@ -1,0 +1,29 @@
+services:
+  osrm-russia-szfo-car:
+    container_name: "osrm-russia-szfo-car"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-szfo-car:/data"
+    command: "osrm-routed --algorithm mld /data/russia-szfo-latest.osrm"
+    restart: unless-stopped
+
+  osrm-russia-szfo-bicycle:
+    container_name: "osrm-russia-szfo-bicycle"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-szfo-bicycle:/data"
+    command: "osrm-routed --algorithm mld /data/russia-szfo-latest.osrm"
+    restart: unless-stopped
+
+  osrm-russia-szfo-foot:
+    container_name: "osrm-russia-szfo-foot"
+    image: "ghcr.io/project-osrm/osrm-backend:latest"
+    volumes:
+      - "./osrm/russia-szfo-foot:/data"
+    command: "osrm-routed --algorithm mld /data/russia-szfo-latest.osrm"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network

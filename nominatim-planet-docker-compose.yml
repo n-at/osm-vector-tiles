@@ -1,0 +1,32 @@
+services:
+  nominatim-planet:
+    image: "mediagis/nominatim:4.5"
+    container_name: "nominatim-planet"
+    volumes:
+      - "./prepare/planet.osm.pbf:/nominatim/data/planet.osm.pbf"
+      - "./nominatim/wikimedia-importance.sql.gz:/nominatim/data/wikimedia-importance.sql.gz"
+      - "./nominatim/secondary_importance.sql.gz:/nominatim/data/secondary_importance.sql.gz"
+      - "./nominatim/planet-flatnode:/nominatim/flatnode"
+      - "postgres-data:/var/lib/postgresql/16/main"
+    environment:
+      NOMINATIM_PASSWORD: "nominatim"
+      PBF_PATH: "/nominatim/data/planet.osm.pbf"
+      IMPORT_WIKIPEDIA: "/nominatim/data/wikimedia-importance.sql.gz"
+      UPDATE_MODE: "none"
+      FREEZE: "true"
+      REVERSE_ONLY: "false"
+      IMPORT_STYLE: "full"
+      POSTGRES_SHARED_BUFFERS: "12GB"
+      POSTGRES_MAINTENANCE_WORK_MEM: "8GB"
+      POSTGRES_AUTOVACUUM_WORK_MEM: "4GB"
+      POSTGRES_WORK_MEM: "50MB"
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "64GB"
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: osm-network
+
+volumes:
+  postgres-data:
