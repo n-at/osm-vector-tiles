@@ -22,6 +22,8 @@
 Скачивание файлов с данными OSM и planetiler.
 
 ```bash
+docker network create osm-network
+
 mkdir -m 0777 prepare
 
 cd prepare
@@ -200,7 +202,6 @@ cd ../..
 ## Запуск сервера
 
 ```bash
-docker network create osm-network
 docker compose -f tiles-docker-compose.yml up -d
 ```
 

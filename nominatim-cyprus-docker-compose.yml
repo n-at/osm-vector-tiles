@@ -7,7 +7,7 @@ services:
       - "./nominatim/wikimedia-importance.sql.gz:/nominatim/data/wikimedia-importance.sql.gz"
       - "./nominatim/secondary_importance.sql.gz:/nominatim/data/secondary_importance.sql.gz"
       # - "./nominatim/cyprus-flatnode:/nominatim/flatnode"
-      # - "./nominatim/cyprus-data:/var/lib/postgresql/16/main"
+      - "postgres-data:/var/lib/postgresql/16/main"
     environment:
       NOMINATIM_PASSWORD: "nominatim"
       PBF_PATH: "/nominatim/data/cyprus-latest.osm.pbf"
@@ -27,3 +27,6 @@ networks:
   default:
     external: true
     name: osm-network
+
+volumes:
+  postgres-data:
