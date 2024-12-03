@@ -14,8 +14,8 @@
 + [openmaptiles/fonts](https://github.com/openmaptiles/fonts) - шрифты (OFL, Apache-2.0)
 + [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) - тема и иконки (BSD-3-Clause, CC-BY 4.0)
 + [gravitystorm/openstreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto) - иконки оригинальной темы OSM Carto (CC0)
-+ [Project-OSRM/osrm-backend](https://github.com/Project-OSRM/osrm-backend) - построение маршрутов
-+ [osm-search/Nominatim](https://github.com/osm-search/Nominatim) - геокодирование
++ [Project-OSRM/osrm-backend](https://github.com/Project-OSRM/osrm-backend) - построение маршрутов (BSD-2-Clause)
++ [osm-search/Nominatim](https://github.com/osm-search/Nominatim) - геокодирование (GPL-3.0)
 
 ## Подготовка к созданию карты
 
@@ -38,6 +38,8 @@ wget "https://download.geofabrik.de/russia-latest.osm.pbf"
 
 #Весь мир
 wget https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
+
+cd ..
 ```
 
 ## Создание векторных карт
@@ -69,8 +71,6 @@ docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /dat
     --osm-path planet.osm.pbf \
     --output /tiles/planet.pmtiles
 ```
-
-Будут созданы файлы `.pmtiles`
 
 ## Подготовка и запуск сервиса построения маршрутов
 
@@ -115,7 +115,7 @@ docker run -it --rm -v $(pwd):/data \
   ghcr.io/project-osrm/osrm-backend \
   osrm-customize /data/osrm/cyprus-foot/cyprus-latest.osrm
 
-#Россия, ~1час
+#Россия, ~1-2 часа
 
 mkdir -m 0777 osrm/russia-car osrm/russia-bicycle osrm/russia-foot
 ln -s ../../prepare/russia-latest.osm.pbf osrm/russia-car/russia-latest.osm.pbf
@@ -159,7 +159,6 @@ docker run -it --rm -v $(pwd):/data \
 #Запуск
 
 docker compose -f osrm-docker-compose.yml up -d
-
 ```
 
 ## Создание БД и запуск сервиса геокодирования
@@ -174,13 +173,13 @@ wget -O "nominatim/secondary_importance.sql.gz" "https://nominatim.org/data/wiki
 mkdir -m 0777 nominatim/cyprus-flatnode nominatim/cyprus-data
 docker compose -f nominatim-cyprus-docker-compose.yml up -d
 
-#Россия
+#Россия ~4 часа
 mkdir -m 0777 nominatim/russia-flatnode nominatim/russia-data
 docker compose -f nominatim-russia-docker-compose.yml up -d
 
 #Весь мир
 
-#TODO
+#TODO >40GB RAM required
 ```
 
 ## Подготовка сервера

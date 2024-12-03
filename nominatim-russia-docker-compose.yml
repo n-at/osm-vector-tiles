@@ -14,7 +14,7 @@ services:
       IMPORT_WIKIPEDIA: "/nominatim/data/wikimedia-importance.sql.gz"
       UPDATE_MODE: "none"
       FREEZE: "true"
-      REVERSE_ONLY: "true"
+      REVERSE_ONLY: "false"
       IMPORT_STYLE: "full"
       POSTGRES_SHARED_BUFFERS: "6GB"
       POSTGRES_MAINTENANCE_WORK_MEM: "512MB"
