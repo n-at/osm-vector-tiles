@@ -6,7 +6,7 @@ services:
       - "./prepare/cyprus-latest.osm.pbf:/nominatim/data/cyprus-latest.osm.pbf"
       - "./nominatim/wikimedia-importance.sql.gz:/nominatim/data/wikimedia-importance.sql.gz"
       - "./nominatim/secondary_importance.sql.gz:/nominatim/data/secondary_importance.sql.gz"
-      # - "./nominatim/cyprus-flatnode:/nominatim/flatnode"
+      - "./nominatim/cyprus-flatnode:/nominatim/flatnode"
       - "postgres-data:/var/lib/postgresql/16/main"
     environment:
       NOMINATIM_PASSWORD: "nominatim"
