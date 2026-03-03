@@ -1,0 +1,58 @@
+{
+    "id": "bridge-path-steps",
+    "type": "line",
+    "source": "openmaptiles",
+    "source-layer": "transportation",
+    "filter": [
+        "all",
+        [
+            "==",
+            "$type",
+            "LineString"
+        ],
+        [
+            "==",
+            "brunnel",
+            "bridge"
+        ],
+        [
+            "==",
+            "class",
+            "path"
+        ],
+        [
+            "==",
+            "subclass",
+            "steps"
+        ]
+    ],
+    "layout": {
+        "line-join": "round",
+        "line-cap": "butt"
+    },
+    "paint": {
+        "line-color": "#fff",
+        "line-opacity": 1,
+        "line-width": {
+            "base": 1.2,
+            "stops": [
+                [
+                    13.5,
+                    0
+                ],
+                [
+                    14,
+                    1.25
+                ],
+                [
+                    20,
+                    5.75
+                ]
+            ]
+        },
+        "line-dasharray": [
+            0.5,
+            0.25
+        ]
+    }
+}

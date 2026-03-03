@@ -1,0 +1,82 @@
+{
+    "id": "Place of worship",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 16,
+    "layout": {
+        "icon-allow-overlap": false,
+        "icon-image": "{subclass}",
+        "icon-size": 1,
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Semibold",
+            "Noto Sans Bold"
+        ],
+        "text-max-width": 9,
+        "text-offset": [
+            0,
+            0.8
+        ],
+        "text-padding": 2,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    12
+                ]
+            ]
+        },
+        "visibility": "visible"
+    },
+    "paint": {
+        "text-color": "hsl(240, 12%, 25%)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 1
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "==",
+            "class",
+            "place_of_worship"
+        ]
+    ]
+}

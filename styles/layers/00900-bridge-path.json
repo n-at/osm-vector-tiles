@@ -1,0 +1,52 @@
+{
+    "id": "bridge-path",
+    "type": "line",
+    "metadata": {
+        "mapbox:group": "1444849334699.1902"
+    },
+    "source": "openmaptiles",
+    "source-layer": "transportation",
+    "filter": [
+        "all",
+        [
+            "==",
+            "$type",
+            "LineString"
+        ],
+        [
+            "==",
+            "brunnel",
+            "bridge"
+        ],
+        [
+            "==",
+            "class",
+            "path"
+        ],
+        [
+            "!=",
+            "subclass",
+            "steps"
+        ]
+    ],
+    "paint": {
+        "line-color": "#cba",
+        "line-dasharray": [
+            1.5,
+            0.75
+        ],
+        "line-width": {
+            "base": 1.2,
+            "stops": [
+                [
+                    15,
+                    1.2
+                ],
+                [
+                    20,
+                    4
+                ]
+            ]
+        }
+    }
+}

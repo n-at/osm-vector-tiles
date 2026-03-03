@@ -1,0 +1,79 @@
+{
+    "id": "Harbor",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 16,
+    "layout": {
+        "icon-allow-overlap": false,
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-anchor": "top",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Semibold Italic",
+            "Noto Sans Italic"
+        ],
+        "text-max-width": 6,
+        "text-padding": 2,
+        "text-size": {
+            "stops": [
+                [
+                    14,
+                    13
+                ],
+                [
+                    20,
+                    16
+                ]
+            ]
+        },
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.2,
+        "icon-opacity": 1,
+        "text-color": "hsl(230, 68%, 61%)",
+        "text-halo-blur": 0.1,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0.3
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "==",
+            "class",
+            "harbor"
+        ]
+    ]
+}

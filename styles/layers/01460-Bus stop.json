@@ -1,0 +1,86 @@
+{
+    "id": "Bus stop",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 17,
+    "layout": {
+        "icon-allow-overlap": false,
+        "icon-anchor": "bottom",
+        "icon-image": "bus_stop.12",
+        "icon-keep-upright": true,
+        "icon-pitch-alignment": "viewport",
+        "icon-size": 1,
+        "icon-text-fit": "none",
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-anchor": "top",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Regular",
+            "Noto Sans Regular"
+        ],
+        "text-max-width": 14,
+        "text-padding": 2,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    11
+                ]
+            ]
+        },
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-translate-anchor": "map",
+        "text-color": "hsl(216, 100%, 50%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0.8,
+        "text-translate": [
+            0,
+            4
+        ],
+        "text-translate-anchor": "viewport"
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "in",
+            "class",
+            "bus"
+        ]
+    ]
+}

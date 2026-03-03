@@ -1,0 +1,83 @@
+{
+    "id": "Train",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 12,
+    "layout": {
+        "icon-allow-overlap": false,
+        "icon-anchor": "bottom",
+        "icon-image": "square_train",
+        "icon-offset": [
+            0,
+            0
+        ],
+        "icon-pitch-alignment": "viewport",
+        "icon-size": 1,
+        "icon-text-fit": "none",
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-allow-overlap": false,
+        "text-anchor": "center",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Bold",
+            "Noto Sans Bold"
+        ],
+        "text-max-width": 14,
+        "text-offset": [
+            0,
+            0.5
+        ],
+        "text-padding": 2,
+        "text-size": 11,
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-translate-anchor": "map",
+        "text-color": "hsl(232, 41%, 48%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0.8,
+        "text-translate": [
+            0,
+            1
+        ],
+        "text-translate-anchor": "viewport"
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "in",
+            "class",
+            "railway"
+        ]
+    ]
+}

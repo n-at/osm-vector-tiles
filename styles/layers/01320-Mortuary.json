@@ -1,0 +1,83 @@
+{
+    "id": "Mortuary",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 14,
+    "layout": {
+        "icon-allow-overlap": false,
+        "icon-offset": [
+            0,
+            0
+        ],
+        "icon-pitch-alignment": "viewport",
+        "icon-text-fit": "none",
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-anchor": "center",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Bold Italic",
+            "Noto Sans Regular"
+        ],
+        "text-max-width": 14,
+        "text-offset": [
+            0,
+            0
+        ],
+        "text-padding": 2,
+        "text-size": 11,
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-translate": [
+            0,
+            0
+        ],
+        "icon-translate-anchor": "map",
+        "text-color": "hsl(129, 24%, 23%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0.8,
+        "text-translate": [
+            0,
+            5
+        ],
+        "text-translate-anchor": "viewport"
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "in",
+            "class",
+            "cemetery"
+        ]
+    ]
+}

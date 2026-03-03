@@ -1,0 +1,88 @@
+{
+    "id": "Bus station",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 17,
+    "layout": {
+        "icon-allow-overlap": false,
+        "icon-anchor": "bottom",
+        "icon-image": "{subclass}",
+        "icon-keep-upright": true,
+        "icon-offset": [
+            0,
+            0
+        ],
+        "icon-pitch-alignment": "viewport",
+        "icon-size": 1,
+        "icon-text-fit": "none",
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-anchor": "center",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Bold",
+            "Noto Sans Bold"
+        ],
+        "text-max-width": 14,
+        "text-padding": 2,
+        "text-size": 11,
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-translate": [
+            0,
+            -8
+        ],
+        "icon-translate-anchor": "map",
+        "text-color": "hsl(216, 100%, 50%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0.8,
+        "text-translate": [
+            0,
+            5
+        ],
+        "text-translate-anchor": "viewport"
+    },
+    "metadata": [],
+    "filter": [
+        "all",
+        [
+            "in",
+            "class",
+            "bus"
+        ],
+        [
+            "!in",
+            "subclass",
+            "bus_stop"
+        ]
+    ]
+}

@@ -1,0 +1,194 @@
+{
+    "id": "Shop",
+    "type": "symbol",
+    "source": "openmaptiles",
+    "source-layer": "poi",
+    "minzoom": 15,
+    "layout": {
+        "icon-allow-overlap": true,
+        "icon-image": [
+            "coalesce",
+            [
+                "image",
+                [
+                    "match",
+                    [
+                        "get",
+                        "subclass"
+                    ],
+                    "chocolate",
+                    "confectionery",
+                    "wine",
+                    "alcohol",
+                    "kiosk",
+                    "newsagent",
+                    "perfume",
+                    "perfumery",
+                    "wholesale",
+                    "trade",
+                    [
+                        "get",
+                        "subclass"
+                    ]
+                ]
+            ],
+            [
+                "image",
+                "dot"
+            ]
+        ],
+        "symbol-sort-key": [
+            "to-number",
+            [
+                "get",
+                "rank"
+            ]
+        ],
+        "text-anchor": "top",
+        "text-field": [
+            "coalesce",
+            [
+                "get",
+                "name:ru"
+            ],
+            [
+                "get",
+                "name:en"
+            ],
+            [
+                "get",
+                "name:nonlatin"
+            ],
+            [
+                "get",
+                "name:latin"
+            ],
+            [
+                "get",
+                "name"
+            ]
+        ],
+        "text-font": [
+            "Open Sans Semibold",
+            "Noto Sans Bold"
+        ],
+        "text-max-width": 9,
+        "text-offset": [
+            0,
+            1
+        ],
+        "text-padding": 2,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    11
+                ]
+            ]
+        },
+        "visibility": "visible"
+    },
+    "paint": {
+        "icon-color": "hsl(0, 0%, 0%)",
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.5,
+        "icon-opacity": [
+            "step",
+            [
+                "zoom"
+            ],
+            0,
+            15,
+            [
+                "match",
+                [
+                    "get",
+                    "subclass"
+                ],
+                [
+                    "supermarket"
+                ],
+                1,
+                0
+            ],
+            16,
+            [
+                "match",
+                [
+                    "get",
+                    "subclass"
+                ],
+                [
+                    "supermarket"
+                ],
+                1,
+                0
+            ],
+            17,
+            1
+        ],
+        "text-color": "hsl(300, 50%, 40%)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 1,
+        "text-opacity": [
+            "step",
+            [
+                "zoom"
+            ],
+            0,
+            15,
+            [
+                "match",
+                [
+                    "get",
+                    "subclass"
+                ],
+                [
+                    "supermarket"
+                ],
+                1,
+                0
+            ],
+            16,
+            [
+                "match",
+                [
+                    "get",
+                    "subclass"
+                ],
+                [
+                    "supermarket"
+                ],
+                1,
+                0
+            ],
+            17,
+            1
+        ]
+    },
+    "metadata": [],
+    "filter": [
+        "any",
+        [
+            "in",
+            "class",
+            "alcohol_shop",
+            "clothing_store",
+            "grocery",
+            "music",
+            "shop"
+        ],
+        [
+            "in",
+            "subclass",
+            "books",
+            "supermarket"
+        ]
+    ]
+}
