@@ -1,17 +1,31 @@
 <?php
 
+//Tiles file name without .pmtiles extension
+$TILES_FILE_NAME = 'planet'; 
+
+//Style display name
+$STYLE_NAME = 'Bright';
+
+//Initial center point
+$CENTER = [0, 0];
+
+//Initial zoom level
+$ZOOM = 1;
+
+//
+
 $json = [
     'id' => 'bright',
-    'name' => 'Bright',
+    'name' => $STYLE_NAME,
     'version' => 8,
-    'center' => [0, 0],
-    'zoom' => 1,
+    'center' => $CENTER,
+    'zoom' => $ZOOM,
     'bearing' => 0,
     'pitch' => 0,
     'sources' => [
         'openmaptiles' => [
             'type' => 'vector',
-            'url' => '/tiles/planet',
+            'url' => "/tiles/{$TILES_FILE_NAME}",
         ],
     ],
     'sprite' => '/tiles/sprite/glyphs',
