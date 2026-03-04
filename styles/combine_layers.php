@@ -30,7 +30,7 @@ $json['metadata'] = $metadata;
 
 $layers = scandir('layers');
 foreach ($layers as $layerFileName) {
-    if (is_dir($layerFileName)) {
+    if (is_dir($layerFileName) || mb_substr($layerFileName, 0, 1, 'utf-8') == '_') {
         continue;
     }
     $layer = file_get_contents("layers/{$layerFileName}");

@@ -1,32 +1,13 @@
 {
-    "id": "Accommodation",
+    "id": "poi-place-of-worship",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 17,
+    "minzoom": 16,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": [
-            "coalesce",
-            [
-                "image",
-                [
-                    "get",
-                    "subclass"
-                ]
-            ],
-            [
-                "image",
-                [
-                    "get",
-                    "class"
-                ]
-            ],
-            [
-                "image",
-                "hotel"
-            ]
-        ],
+        "icon-image": "{subclass}",
+        "icon-size": 1,
         "symbol-sort-key": [
             "to-number",
             [
@@ -34,6 +15,7 @@
                 "rank"
             ]
         ],
+        "text-allow-overlap": false,
         "text-anchor": "top",
         "text-field": [
             "coalesce",
@@ -65,7 +47,7 @@
         "text-max-width": 9,
         "text-offset": [
             0,
-            0.6
+            0.8
         ],
         "text-padding": 2,
         "text-size": {
@@ -76,18 +58,14 @@
                 ],
                 [
                     20,
-                    11
+                    12
                 ]
             ]
         },
         "visibility": "visible"
     },
     "paint": {
-        "icon-halo-blur": 1,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 0.5,
-        "icon-opacity": 1,
-        "text-color": "hsl(216, 100%, 50%)",
+        "text-color": "hsl(240, 12%, 25%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
@@ -98,7 +76,7 @@
         [
             "==",
             "class",
-            "lodging"
+            "place_of_worship"
         ]
     ]
 }

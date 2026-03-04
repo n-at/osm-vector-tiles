@@ -1,17 +1,12 @@
 {
-    "id": "Education",
+    "id": "poi-sport",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 16,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-offset": [
-            0,
-            0
-        ],
-        "icon-pitch-alignment": "viewport",
-        "icon-text-fit": "none",
+        "icon-image": "{subclass}",
         "symbol-sort-key": [
             "to-number",
             [
@@ -19,7 +14,7 @@
                 "rank"
             ]
         ],
-        "text-anchor": "center",
+        "text-anchor": "top",
         "text-field": [
             "coalesce",
             [
@@ -45,27 +40,35 @@
         ],
         "text-font": [
             "Open Sans Semibold Italic",
-            "Noto Sans Regular"
+            "Noto Sans Bold"
         ],
         "text-max-width": 9,
         "text-offset": [
             0,
-            0
+            1.2
         ],
         "text-padding": 2,
-        "text-size": 11,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    11
+                ]
+            ]
+        },
         "visibility": "visible"
     },
     "paint": {
-        "icon-translate-anchor": "map",
-        "text-color": "hsl(60, 100%, 15%)",
+        "icon-halo-blur": 0,
+        "icon-opacity": 1,
+        "text-color": "hsl(126, 100%, 27%)",
+        "text-halo-blur": 1,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 0.8,
-        "text-translate": [
-            0,
-            5
-        ],
-        "text-translate-anchor": "viewport"
+        "text-halo-width": 0.2
     },
     "metadata": [],
     "filter": [
@@ -73,10 +76,11 @@
         [
             "in",
             "class",
-            "college",
-            "kindergarten",
-            "school",
-            "university"
+            "golf",
+            "stadium",
+            "swimming_pool",
+            "sports_centre",
+            "water_park"
         ]
     ]
 }

@@ -1,40 +1,30 @@
 {
-    "id": "Shop",
+    "id": "poi-health",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 15,
+    "minzoom": 16,
     "layout": {
-        "icon-allow-overlap": true,
+        "icon-allow-overlap": false,
         "icon-image": [
             "coalesce",
             [
                 "image",
                 [
-                    "match",
-                    [
-                        "get",
-                        "subclass"
-                    ],
-                    "chocolate",
-                    "confectionery",
-                    "wine",
-                    "alcohol",
-                    "kiosk",
-                    "newsagent",
-                    "perfume",
-                    "perfumery",
-                    "wholesale",
-                    "trade",
-                    [
-                        "get",
-                        "subclass"
-                    ]
+                    "get",
+                    "subclass"
                 ]
             ],
             [
                 "image",
-                "dot"
+                [
+                    "get",
+                    "class"
+                ]
+            ],
+            [
+                "image",
+                "hospital"
             ]
         ],
         "symbol-sort-key": [
@@ -69,19 +59,19 @@
             ]
         ],
         "text-font": [
-            "Open Sans Semibold",
-            "Noto Sans Bold"
+            "Open Sans Regular",
+            "Noto Sans Regular"
         ],
         "text-max-width": 9,
         "text-offset": [
             0,
-            1
+            1.2
         ],
         "text-padding": 2,
         "text-size": {
             "stops": [
                 [
-                    15,
+                    14,
                     10
                 ],
                 [
@@ -93,7 +83,7 @@
         "visibility": "visible"
     },
     "paint": {
-        "icon-color": "hsl(0, 0%, 0%)",
+        "icon-color": "hsla(0, 0%, 0%, 0.98)",
         "icon-halo-blur": 1,
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 0.5,
@@ -103,15 +93,15 @@
                 "zoom"
             ],
             0,
-            15,
+            14,
             [
                 "match",
                 [
                     "get",
-                    "subclass"
+                    "class"
                 ],
                 [
-                    "supermarket"
+                    "hospital"
                 ],
                 1,
                 0
@@ -121,10 +111,11 @@
                 "match",
                 [
                     "get",
-                    "subclass"
+                    "class"
                 ],
                 [
-                    "supermarket"
+                    "hospital",
+                    "pharmacy"
                 ],
                 1,
                 0
@@ -132,7 +123,7 @@
             17,
             1
         ],
-        "text-color": "hsl(300, 50%, 40%)",
+        "text-color": "hsl(0, 100%, 37%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1,
@@ -142,15 +133,15 @@
                 "zoom"
             ],
             0,
-            15,
+            14,
             [
                 "match",
                 [
                     "get",
-                    "subclass"
+                    "class"
                 ],
                 [
-                    "supermarket"
+                    "hospital"
                 ],
                 1,
                 0
@@ -160,35 +151,31 @@
                 "match",
                 [
                     "get",
-                    "subclass"
+                    "class"
                 ],
                 [
-                    "supermarket"
+                    "hospital",
+                    "pharmacy"
                 ],
                 1,
                 0
             ],
             17,
+            1,
+            22,
             1
         ]
     },
     "metadata": [],
     "filter": [
-        "any",
+        "all",
         [
             "in",
             "class",
-            "alcohol_shop",
-            "clothing_store",
-            "grocery",
-            "music",
-            "shop"
-        ],
-        [
-            "in",
-            "subclass",
-            "books",
-            "supermarket"
+            "hospital",
+            "pharmacy",
+            "dentist",
+            "veterinary"
         ]
     ]
 }

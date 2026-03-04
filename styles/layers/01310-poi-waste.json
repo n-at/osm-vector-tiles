@@ -1,5 +1,5 @@
 {
-    "id": "Waste",
+    "id": "poi-waste",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",

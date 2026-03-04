@@ -1,12 +1,33 @@
 {
-    "id": "Ferry",
+    "id": "poi-transport",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 15,
+    "minzoom": 17,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": "ferry",
+        "icon-ignore-placement": false,
+        "icon-image": [
+            "coalesce",
+            [
+                "image",
+                [
+                    "get",
+                    "subclass"
+                ]
+            ],
+            [
+                "image",
+                [
+                    "get",
+                    "class"
+                ]
+            ],
+            [
+                "image",
+                "car"
+            ]
+        ],
         "symbol-sort-key": [
             "to-number",
             [
@@ -39,13 +60,13 @@
             ]
         ],
         "text-font": [
-            "Open Sans Regular",
-            "Noto Sans Regular"
+            "Open Sans Semibold",
+            "Noto Sans Bold"
         ],
         "text-max-width": 9,
         "text-offset": [
             0,
-            0.7
+            1.2
         ],
         "text-padding": 2,
         "text-size": {
@@ -66,8 +87,42 @@
         "icon-halo-blur": 1,
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 0.5,
-        "icon-opacity": 1,
-        "text-color": "hsl(261, 46%, 43%)",
+        "icon-opacity": [
+            "step",
+            [
+                "zoom"
+            ],
+            0,
+            15,
+            [
+                "match",
+                [
+                    "get",
+                    "class"
+                ],
+                [
+                    "parking"
+                ],
+                1,
+                0
+            ],
+            16,
+            [
+                "match",
+                [
+                    "get",
+                    "class"
+                ],
+                [
+                    "parking"
+                ],
+                1,
+                0
+            ],
+            17,
+            1
+        ],
+        "text-color": "hsl(216, 100%, 50%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
@@ -77,13 +132,16 @@
         "all",
         [
             "==",
-            "subclass",
-            "ferry_terminal"
+            "$type",
+            "Point"
         ],
         [
-            "==",
+            "in",
             "class",
-            "ferry_terminal"
+            "bicycle_parking",
+            "car",
+            "fuel",
+            "parking"
         ]
     ]
 }

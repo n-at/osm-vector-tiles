@@ -1,25 +1,17 @@
 {
-    "id": "Food",
+    "id": "poi-education",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 16,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": [
-            "coalesce",
-            [
-                "image",
-                [
-                    "get",
-                    "subclass"
-                ]
-            ],
-            [
-                "image",
-                "restaurant"
-            ]
+        "icon-offset": [
+            0,
+            0
         ],
+        "icon-pitch-alignment": "viewport",
+        "icon-text-fit": "none",
         "symbol-sort-key": [
             "to-number",
             [
@@ -27,7 +19,7 @@
                 "rank"
             ]
         ],
-        "text-anchor": "top",
+        "text-anchor": "center",
         "text-field": [
             "coalesce",
             [
@@ -52,38 +44,28 @@
             ]
         ],
         "text-font": [
-            "Open Sans Semibold",
-            "Noto Sans Bold"
+            "Open Sans Semibold Italic",
+            "Noto Sans Regular"
         ],
         "text-max-width": 9,
         "text-offset": [
             0,
-            1
+            0
         ],
         "text-padding": 2,
-        "text-size": {
-            "stops": [
-                [
-                    15,
-                    10
-                ],
-                [
-                    20,
-                    11
-                ]
-            ]
-        },
+        "text-size": 11,
         "visibility": "visible"
     },
     "paint": {
-        "icon-halo-blur": 1,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 0.5,
-        "icon-opacity": 1,
-        "text-color": "hsl(35, 100%, 39%)",
-        "text-halo-blur": 0.5,
+        "icon-translate-anchor": "map",
+        "text-color": "hsl(60, 100%, 15%)",
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1
+        "text-halo-width": 0.8,
+        "text-translate": [
+            0,
+            5
+        ],
+        "text-translate-anchor": "viewport"
     },
     "metadata": [],
     "filter": [
@@ -91,12 +73,10 @@
         [
             "in",
             "class",
-            "ice_cream",
-            "cafe",
-            "beer",
-            "bar",
-            "fast_food",
-            "restaurant"
+            "college",
+            "kindergarten",
+            "school",
+            "university"
         ]
     ]
 }

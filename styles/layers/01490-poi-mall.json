@@ -1,12 +1,11 @@
 {
-    "id": "Cultural",
+    "id": "poi-mall",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 15,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": "{subclass}",
         "symbol-sort-key": [
             "to-number",
             [
@@ -39,24 +38,24 @@
             ]
         ],
         "text-font": [
-            "Open Sans Semibold",
-            "Noto Sans Bold"
+            "Open Sans Semibold Italic",
+            "Noto Sans Italic"
         ],
         "text-max-width": 9,
         "text-offset": [
             0,
-            0.8
+            1.1
         ],
         "text-padding": 2,
         "text-size": {
             "stops": [
                 [
                     15,
-                    10
+                    12
                 ],
                 [
                     20,
-                    11
+                    16
                 ]
             ]
         },
@@ -67,7 +66,7 @@
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 0.5,
         "icon-opacity": 1,
-        "text-color": "hsl(37, 87%, 24%)",
+        "text-color": "hsl(7, 100%, 41%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
@@ -76,23 +75,14 @@
     "filter": [
         "all",
         [
-            "in",
+            "==",
             "class",
-            "cinema",
-            "library",
-            "museum",
-            "castle",
-            "monument",
-            "art_gallery",
-            "arts_centre",
-            "gallery"
+            "shop"
         ],
         [
-            "!in",
+            "==",
             "subclass",
-            "books",
-            "musical_instrument",
-            "art"
+            "mall"
         ]
     ]
 }

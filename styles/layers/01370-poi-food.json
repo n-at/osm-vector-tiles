@@ -1,12 +1,25 @@
 {
-    "id": "Public",
+    "id": "poi-food",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 16,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": "{subclass}",
+        "icon-image": [
+            "coalesce",
+            [
+                "image",
+                [
+                    "get",
+                    "subclass"
+                ]
+            ],
+            [
+                "image",
+                "restaurant"
+            ]
+        ],
         "symbol-sort-key": [
             "to-number",
             [
@@ -45,7 +58,7 @@
         "text-max-width": 9,
         "text-offset": [
             0,
-            0.8
+            1
         ],
         "text-padding": 2,
         "text-size": {
@@ -67,7 +80,7 @@
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 0.5,
         "icon-opacity": 1,
-        "text-color": "hsl(37, 87%, 24%)",
+        "text-color": "hsl(35, 100%, 39%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
@@ -78,20 +91,12 @@
         [
             "in",
             "class",
-            "atm",
-            "town_hall",
-            "post",
-            "library",
-            "police",
-            "information",
-            "cinema",
-            "theatre",
-            "fire_station"
-        ],
-        [
-            "!=",
-            "subclass",
-            "books"
+            "ice_cream",
+            "cafe",
+            "beer",
+            "bar",
+            "fast_food",
+            "restaurant"
         ]
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "id": "waterway_tunnel",
+    "id": "waterway-tunnel",
     "type": "line",
     "source": "openmaptiles",
     "source-layer": "waterway",

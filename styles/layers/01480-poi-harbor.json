@@ -1,13 +1,11 @@
 {
-    "id": "Place of worship",
+    "id": "poi-harbor",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 16,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-image": "{subclass}",
-        "icon-size": 1,
         "symbol-sort-key": [
             "to-number",
             [
@@ -15,7 +13,6 @@
                 "rank"
             ]
         ],
-        "text-allow-overlap": false,
         "text-anchor": "top",
         "text-field": [
             "coalesce",
@@ -41,34 +38,34 @@
             ]
         ],
         "text-font": [
-            "Open Sans Semibold",
-            "Noto Sans Bold"
+            "Open Sans Semibold Italic",
+            "Noto Sans Italic"
         ],
-        "text-max-width": 9,
-        "text-offset": [
-            0,
-            0.8
-        ],
+        "text-max-width": 6,
         "text-padding": 2,
         "text-size": {
             "stops": [
                 [
-                    15,
-                    10
+                    14,
+                    13
                 ],
                 [
                     20,
-                    12
+                    16
                 ]
             ]
         },
         "visibility": "visible"
     },
     "paint": {
-        "text-color": "hsl(240, 12%, 25%)",
-        "text-halo-blur": 0.5,
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.2,
+        "icon-opacity": 1,
+        "text-color": "hsl(230, 68%, 61%)",
+        "text-halo-blur": 0.1,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1
+        "text-halo-width": 0.3
     },
     "metadata": [],
     "filter": [
@@ -76,7 +73,7 @@
         [
             "==",
             "class",
-            "place_of_worship"
+            "harbor"
         ]
     ]
 }

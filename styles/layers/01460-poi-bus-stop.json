@@ -1,17 +1,14 @@
 {
-    "id": "Train",
+    "id": "poi-bus-stop",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 12,
+    "minzoom": 17,
     "layout": {
         "icon-allow-overlap": false,
         "icon-anchor": "bottom",
-        "icon-image": "square_train",
-        "icon-offset": [
-            0,
-            0
-        ],
+        "icon-image": "bus_stop.12",
+        "icon-keep-upright": true,
         "icon-pitch-alignment": "viewport",
         "icon-size": 1,
         "icon-text-fit": "none",
@@ -22,8 +19,7 @@
                 "rank"
             ]
         ],
-        "text-allow-overlap": false,
-        "text-anchor": "center",
+        "text-anchor": "top",
         "text-field": [
             "coalesce",
             [
@@ -48,26 +44,33 @@
             ]
         ],
         "text-font": [
-            "Open Sans Bold",
-            "Noto Sans Bold"
+            "Open Sans Regular",
+            "Noto Sans Regular"
         ],
         "text-max-width": 14,
-        "text-offset": [
-            0,
-            0.5
-        ],
         "text-padding": 2,
-        "text-size": 11,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    11
+                ]
+            ]
+        },
         "visibility": "visible"
     },
     "paint": {
         "icon-translate-anchor": "map",
-        "text-color": "hsl(232, 41%, 48%)",
+        "text-color": "hsl(216, 100%, 50%)",
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 0.8,
         "text-translate": [
             0,
-            1
+            4
         ],
         "text-translate-anchor": "viewport"
     },
@@ -77,7 +80,7 @@
         [
             "in",
             "class",
-            "railway"
+            "bus"
         ]
     ]
 }

@@ -1,17 +1,12 @@
 {
-    "id": "Bus stop",
+    "id": "poi-ferry",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 17,
+    "minzoom": 15,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-anchor": "bottom",
-        "icon-image": "bus_stop.12",
-        "icon-keep-upright": true,
-        "icon-pitch-alignment": "viewport",
-        "icon-size": 1,
-        "icon-text-fit": "none",
+        "icon-image": "ferry",
         "symbol-sort-key": [
             "to-number",
             [
@@ -47,7 +42,11 @@
             "Open Sans Regular",
             "Noto Sans Regular"
         ],
-        "text-max-width": 14,
+        "text-max-width": 9,
+        "text-offset": [
+            0,
+            0.7
+        ],
         "text-padding": 2,
         "text-size": {
             "stops": [
@@ -64,23 +63,27 @@
         "visibility": "visible"
     },
     "paint": {
-        "icon-translate-anchor": "map",
-        "text-color": "hsl(216, 100%, 50%)",
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.5,
+        "icon-opacity": 1,
+        "text-color": "hsl(261, 46%, 43%)",
+        "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 0.8,
-        "text-translate": [
-            0,
-            4
-        ],
-        "text-translate-anchor": "viewport"
+        "text-halo-width": 1
     },
     "metadata": [],
     "filter": [
         "all",
         [
-            "in",
+            "==",
+            "subclass",
+            "ferry_terminal"
+        ],
+        [
+            "==",
             "class",
-            "bus"
+            "ferry_terminal"
         ]
     ]
 }

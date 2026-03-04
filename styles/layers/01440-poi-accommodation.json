@@ -1,21 +1,32 @@
 {
-    "id": "Bus station",
+    "id": "poi-accommodation",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
     "minzoom": 17,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-anchor": "bottom",
-        "icon-image": "{subclass}",
-        "icon-keep-upright": true,
-        "icon-offset": [
-            0,
-            0
+        "icon-image": [
+            "coalesce",
+            [
+                "image",
+                [
+                    "get",
+                    "subclass"
+                ]
+            ],
+            [
+                "image",
+                [
+                    "get",
+                    "class"
+                ]
+            ],
+            [
+                "image",
+                "hotel"
+            ]
         ],
-        "icon-pitch-alignment": "viewport",
-        "icon-size": 1,
-        "icon-text-fit": "none",
         "symbol-sort-key": [
             "to-number",
             [
@@ -23,7 +34,7 @@
                 "rank"
             ]
         ],
-        "text-anchor": "center",
+        "text-anchor": "top",
         "text-field": [
             "coalesce",
             [
@@ -48,41 +59,46 @@
             ]
         ],
         "text-font": [
-            "Open Sans Bold",
+            "Open Sans Semibold",
             "Noto Sans Bold"
         ],
-        "text-max-width": 14,
+        "text-max-width": 9,
+        "text-offset": [
+            0,
+            0.6
+        ],
         "text-padding": 2,
-        "text-size": 11,
+        "text-size": {
+            "stops": [
+                [
+                    15,
+                    10
+                ],
+                [
+                    20,
+                    11
+                ]
+            ]
+        },
         "visibility": "visible"
     },
     "paint": {
-        "icon-translate": [
-            0,
-            -8
-        ],
-        "icon-translate-anchor": "map",
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.5,
+        "icon-opacity": 1,
         "text-color": "hsl(216, 100%, 50%)",
+        "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 0.8,
-        "text-translate": [
-            0,
-            5
-        ],
-        "text-translate-anchor": "viewport"
+        "text-halo-width": 1
     },
     "metadata": [],
     "filter": [
         "all",
         [
-            "in",
+            "==",
             "class",
-            "bus"
-        ],
-        [
-            "!in",
-            "subclass",
-            "bus_stop"
+            "lodging"
         ]
     ]
 }

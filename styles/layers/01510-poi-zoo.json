@@ -1,11 +1,11 @@
 {
-    "id": "Sport",
+    "id": "poi-zoo",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 16,
+    "minzoom": 12,
     "layout": {
-        "icon-allow-overlap": false,
+        "icon-allow-overlap": true,
         "icon-image": "{subclass}",
         "symbol-sort-key": [
             "to-number",
@@ -39,10 +39,10 @@
             ]
         ],
         "text-font": [
-            "Open Sans Semibold Italic",
+            "Open Sans Bold",
             "Noto Sans Bold"
         ],
-        "text-max-width": 9,
+        "text-max-width": 6,
         "text-offset": [
             0,
             1.2
@@ -52,35 +52,38 @@
             "stops": [
                 [
                     15,
-                    10
+                    12
                 ],
                 [
                     20,
-                    11
+                    16
                 ]
             ]
         },
         "visibility": "visible"
     },
     "paint": {
-        "icon-halo-blur": 0,
+        "icon-halo-blur": 1,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 0.5,
         "icon-opacity": 1,
-        "text-color": "hsl(126, 100%, 27%)",
-        "text-halo-blur": 1,
+        "text-color": "hsl(330, 100%, 20%)",
+        "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 0.2
+        "text-halo-width": 1
     },
     "metadata": [],
     "filter": [
         "all",
         [
-            "in",
+            "==",
             "class",
-            "golf",
-            "stadium",
-            "swimming_pool",
-            "sports_centre",
-            "water_park"
+            "zoo"
+        ],
+        [
+            "==",
+            "subclass",
+            "zoo"
         ]
     ]
 }
