@@ -1,5 +1,7 @@
 # Создание БД и запуск сервиса геокодирования
 
+> TODO в процессе переработки
+
 + [osm-search/Nominatim](https://github.com/osm-search/Nominatim) - геокодирование (GPL-3.0)
 
 ```bash

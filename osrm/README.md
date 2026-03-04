@@ -1,5 +1,7 @@
 # Подготовка и запуск сервиса построения маршрутов
 
+> TODO в процессе переработки
+
 + [Project-OSRM/osrm-backend](https://github.com/Project-OSRM/osrm-backend) - построение маршрутов (BSD-2-Clause)
 
 ```bash
