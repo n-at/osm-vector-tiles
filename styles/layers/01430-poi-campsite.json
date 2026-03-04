@@ -78,7 +78,8 @@
         [
             "==",
             "class",
-            "campsite"
+            "campsite",
+            "camp_site"
         ]
     ]
 }

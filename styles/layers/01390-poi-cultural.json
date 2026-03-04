@@ -85,7 +85,9 @@
             "monument",
             "art_gallery",
             "arts_centre",
-            "gallery"
+            "gallery",
+            "public_bookcase",
+            "artwork"
         ],
         [
             "!in",

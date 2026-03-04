@@ -1,0 +1,28 @@
+{
+    "id": "landuse-retail",
+    "type": "fill",
+    "source": "openmaptiles",
+    "source-layer": "landuse",
+    "minzoom": 7,
+    "layout": {
+        "visibility": "visible"
+    },
+    "paint": {
+        "fill-color": "hsl(7, 100%, 96%)",
+        "fill-opacity": 1
+    },
+    "metadata": {},
+    "filter": [
+        "all",
+        [
+            "==",
+            "class",
+            "retail"
+        ],
+        [
+            "==",
+            "$type",
+            "Polygon"
+        ]
+    ]
+}

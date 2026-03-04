@@ -1,0 +1,28 @@
+{
+    "id": "landuse-quarry",
+    "type": "fill",
+    "source": "openmaptiles",
+    "source-layer": "landuse",
+    "minzoom": 7,
+    "layout": {
+        "visibility": "visible"
+    },
+    "paint": {
+        "fill-color": "hsl(0, 0%, 83%)",
+        "fill-opacity": 1
+    },
+    "metadata": {},
+    "filter": [
+        "all",
+        [
+            "==",
+            "class",
+            "quarry"
+        ],
+        [
+            "==",
+            "$type",
+            "Polygon"
+        ]
+    ]
+}

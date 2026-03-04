@@ -98,7 +98,15 @@
         [
             "==",
             "class",
-            "lodging"
+            "lodging",
+            "hotel",
+            "guest_house",
+            "hostel",
+            "chalet",
+            "motel",
+            "apartment",
+            "alpine_hut",
+            "wilderness_hut"
         ]
     ]
 }

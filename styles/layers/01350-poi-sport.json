@@ -80,7 +80,15 @@
             "stadium",
             "swimming_pool",
             "sports_centre",
-            "water_park"
+            "water_park",
+            "fitness_station",
+            "fitness_centre",
+            "massage",
+            "sauna",
+            "public_bath",
+            "miniature_golf",
+            "bowling_alley",
+            "dance"
         ]
     ]
 }

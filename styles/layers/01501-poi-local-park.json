@@ -1,12 +1,10 @@
 {
-    "id": "poi-outdoor",
+    "id": "poi-local-park",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 16,
+    "minzoom": 15,
     "layout": {
-        "icon-allow-overlap": false,
-        "icon-image": "{subclass}",
         "symbol-sort-key": [
             "to-number",
             [
@@ -14,7 +12,8 @@
                 "rank"
             ]
         ],
-        "text-anchor": "top",
+        "symbol-spacing": 150,
+        "text-allow-overlap": false,
         "text-field": [
             "coalesce",
             [
@@ -40,14 +39,20 @@
         ],
         "text-font": [
             "Open Sans Semibold Italic",
-            "Noto Sans Bold"
+            "Noto Sans Italic"
         ],
-        "text-max-width": 9,
-        "text-offset": [
-            0,
-            1.2
-        ],
-        "text-padding": 2,
+        "text-max-width": {
+            "stops": [
+                [
+                    12,
+                    5
+                ],
+                [
+                    18,
+                    8
+                ]
+            ]
+        },
         "text-size": {
             "stops": [
                 [
@@ -56,46 +61,29 @@
                 ],
                 [
                     20,
-                    11
+                    13
                 ]
             ]
         },
         "visibility": "visible"
     },
     "paint": {
-        "icon-halo-blur": 0,
-        "icon-opacity": 1,
-        "text-color": "hsl(126, 100%, 27%)",
-        "text-halo-blur": 1,
+        "text-color": "hsl(125, 83%, 28%)",
+        "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 0.2
+        "text-halo-width": 1
     },
-    "metadata": [],
     "filter": [
         "all",
         [
-            "in",
+            "==",
             "class",
-            "pitch",
-            "playground",
-            "stile",
-            "garden",
-            "gate",
-            "fishing",
-            "beach_resort",
-            "dog_park",
-            "bench",
-            "shelter",
-            "drinking_water",
-            "picnic_site",
-            "fountain",
-            "picnic_table",
-            "caravan_site",
-            "bbq",
-            "shower",
-            "firepit",
-            "bird_hide",
-            "viewpoint"
+            "park"
+        ],
+        [
+            "==",
+            "subclass",
+            "park"
         ]
     ]
 }

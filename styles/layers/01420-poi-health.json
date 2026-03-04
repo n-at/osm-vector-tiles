@@ -175,7 +175,9 @@
             "hospital",
             "pharmacy",
             "dentist",
-            "veterinary"
+            "veterinary",
+            "clinic",
+            "doctors"
         ]
     ]
 }

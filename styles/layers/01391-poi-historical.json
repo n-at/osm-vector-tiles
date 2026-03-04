@@ -1,12 +1,11 @@
 {
-    "id": "poi-transport",
+    "id": "poi-historical",
     "type": "symbol",
     "source": "openmaptiles",
     "source-layer": "poi",
-    "minzoom": 17,
+    "minzoom": 15,
     "layout": {
         "icon-allow-overlap": false,
-        "icon-ignore-placement": false,
         "icon-image": [
             "coalesce",
             [
@@ -25,7 +24,7 @@
             ],
             [
                 "image",
-                "car"
+                "dot"
             ]
         ],
         "symbol-sort-key": [
@@ -66,7 +65,7 @@
         "text-max-width": 9,
         "text-offset": [
             0,
-            1.2
+            0.8
         ],
         "text-padding": 2,
         "text-size": {
@@ -87,42 +86,8 @@
         "icon-halo-blur": 1,
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 0.5,
-        "icon-opacity": [
-            "step",
-            [
-                "zoom"
-            ],
-            0,
-            15,
-            [
-                "match",
-                [
-                    "get",
-                    "class"
-                ],
-                [
-                    "parking"
-                ],
-                1,
-                0
-            ],
-            16,
-            [
-                "match",
-                [
-                    "get",
-                    "class"
-                ],
-                [
-                    "parking"
-                ],
-                1,
-                0
-            ],
-            17,
-            1
-        ],
-        "text-color": "hsl(216, 100%, 50%)",
+        "icon-opacity": 1,
+        "text-color": "hsl(37, 87%, 24%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
@@ -131,22 +96,15 @@
     "filter": [
         "all",
         [
-            "==",
-            "$type",
-            "Point"
-        ],
-        [
             "in",
             "class",
-            "bicycle_parking",
-            "car",
-            "fuel",
-            "parking"
-        ],
-        [
-            "!in",
-            "subclass",
-            "car_parts"
+            "memorial",
+            "archaeological_site",
+            "wayside_shrine",
+            "obelisk",
+            "statue",
+            "bust",
+            "fort"
         ]
     ]
 }

@@ -81,6 +81,11 @@
             "in",
             "class",
             "bus"
+        ],
+        [
+            "in",
+            "subclass",
+            "bus_stop"
         ]
     ]
 }
