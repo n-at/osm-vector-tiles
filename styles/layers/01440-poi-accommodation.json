@@ -96,7 +96,7 @@
     "filter": [
         "all",
         [
-            "==",
+            "in",
             "class",
             "lodging",
             "hotel",

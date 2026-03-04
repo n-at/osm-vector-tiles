@@ -1,7 +1,7 @@
 {
     "id": "bright",
     "name": "Bright",
-    "version": 10,
+    "version": 8,
     "center": [
         0,
         0
@@ -5404,7 +5404,9 @@
                 "text-rotation-alignment": "viewport",
                 "text-size": 10
             },
-            "paint": []
+            "paint": {
+                "text-color": "hsl(338, 87%, 21%)"
+            }
         },
         {
             "id": "highway-shield-us-interstate",
@@ -7662,7 +7664,7 @@
             "filter": [
                 "all",
                 [
-                    "==",
+                    "in",
                     "class",
                     "campsite",
                     "camp_site"
@@ -7767,7 +7769,7 @@
             "filter": [
                 "all",
                 [
-                    "==",
+                    "in",
                     "class",
                     "lodging",
                     "hotel",

@@ -76,7 +76,7 @@
     "filter": [
         "all",
         [
-            "==",
+            "in",
             "class",
             "campsite",
             "camp_site"

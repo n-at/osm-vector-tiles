@@ -3,7 +3,7 @@
 $json = [
     'id' => 'bright',
     'name' => 'Bright',
-    'version' => 10,
+    'version' => 8,
     'center' => [0, 0],
     'zoom' => 1,
     'bearing' => 0,

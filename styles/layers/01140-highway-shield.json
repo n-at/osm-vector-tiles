@@ -49,5 +49,7 @@
         "text-rotation-alignment": "viewport",
         "text-size": 10
     },
-    "paint": []
+    "paint": {
+        "text-color": "hsl(338, 87%, 21%)"
+    }
 }
