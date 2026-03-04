@@ -16,70 +16,62 @@
 
 Настройка и подключение Nominatim для прямого и обратного геокодирования рассматривается в NOMINATIM.md
 
-## Подготовка к созданию карты
+## Подготовка к созданию карты и создание векторных карт
 
-Скачивание файлов с данными OSM и planetiler.
+Скачивание файлов с данными OSM и planetiler, запуск формирования векторных карт.
+
+В результате получится файл с расширением `.pmtiles`.
 
 ```bash
-docker network create osm-network
-
 mkdir -m 0777 prepare
 
-cd prepare
+wget -O "planetiler.jar" https://github.com/onthegomap/planetiler/releases/latest/download/planetiler.jar
 
-wget https://github.com/onthegomap/planetiler/releases/latest/download/planetiler.jar
+#При проблемах скачивания файлов данными для planetiler можно запустить вручную:
+#cd prepare/data/sources
+#wget "https://osmdata.openstreetmap.de/download/water-polygons-split-3857.zip"
+#wget "https://naciscdn.org/naturalearth/packages/natural_earth_vector.sqlite.zip"
+#cd ../../..
 
 #Кипр (для тестирования)
-wget "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
+wget -O "cyprus-latest.osm.pbf" "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
 
-#Россия (на geofabrik.de границы до 2022 года)
-wget "https://download.geofabrik.de/russia-latest.osm.pbf"
+docker run -it --rm -v $(pwd)/prepare:/data -w /data \
+    eclipse-temurin:21 \
+    java -Xmx1g -jar planetiler.jar \
+    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
+    --osm-path cyprus-latest.osm.pbf \
+    --output /data/cyprus-latest.pmtiles
 
 #Россия, СЗФО
 wget -O "russia-szfo-latest.osm.pbf" "https://download.geofabrik.de/russia/northwestern-fed-district-latest.osm.pbf"
 
-#Весь мир
-wget https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
-
-cd ..
-```
-
-## Создание векторных карт
-
-```bash
-mkdir -m 0777 serve/tiles
-
-#Кипр (для тестирования), ~5-10 минут
-docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
-    openjdk:21 \
-    java -Xmx1g -jar planetiler.jar \
-    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
-    --osm-path cyprus-latest.osm.pbf \
-    --output /tiles/cyprus-latest.pmtiles
-
-#Россия, ~20-30 минут
-docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
-    openjdk:21 \
-    java -Xmx8g -jar planetiler.jar \
-    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
-    --osm-path russia-latest.osm.pbf \
-    --output /tiles/russia-latest.pmtiles
-
-#Россия, СЗФО, ~15-20 минут
-docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
-    openjdk:21 \
+docker run -it --rm -v $(pwd)/prepare:/data -w /data \
+    eclipse-temurin:21 \
     java -Xmx8g -jar planetiler.jar \
     --download --fetch-wikidata --nodemap-type=array --storage=mmap \
     --osm-path russia-szfo-latest.osm.pbf \
-    --output /tiles/russia-szfo-latest.pmtiles
+    --output /data/russia-szfo-latest.pmtiles
 
-#Весь мир, ~5 часов (16 ядер, 40ГБ RAM, ~500ГБ SSD)
-docker run -it --rm -v $(pwd)/prepare:/data -v $(pwd)/serve/tiles:/tiles -w /data \
-    openjdk:21 \
+#Россия (на geofabrik.de границы до 2022 года)
+wget -O "russia-latest.osm.pbf" "https://download.geofabrik.de/russia-latest.osm.pbf"
+
+docker run -it --rm -v $(pwd)/prepare:/data -w /data \
+    eclipse-temurin:21 \
+    java -Xmx8g -jar planetiler.jar \
+    --download --fetch-wikidata --nodemap-type=array --storage=mmap \
+    --osm-path russia-latest.osm.pbf \
+    --output /data/russia-latest.pmtiles
+
+#Весь мир
+wget -O "planet-latest.osm.pbf" https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
+
+docker run -it --rm -v $(pwd)/prepare:/data -w /data \
+    eclipse-temurin:21 \
     java -Xmx40g -jar planetiler.jar \
     --download --fetch-wikidata --nodemap-type=array --storage=mmap \
-    --osm-path planet.osm.pbf \
-    --output /tiles/planet.pmtiles
+    --osm-path planet-latest.osm.pbf \
+    --output /data/planet-latest.pmtiles
 ```
 
 ## Подготовка сервера
