@@ -14,13 +14,35 @@
     <link rel='stylesheet' href='/node_modules/maplibre-gl/dist/maplibre-gl.css' />
     <script src='/node_modules/maplibre-gl/dist/maplibre-gl.js'></script>
 
-    <link rel="stylesheet" href="/resources/map.css">
-    <script src="/resources/map.js"></script>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        html, body, #map { 
+            height: 100%; 
+        }
+    </style>
 </head>
 <body>
     <div id="map"></div>
     <script>
-        window.MapInit('planet');
+        (() => {
+            const map = new maplibregl.Map({
+                container: 'map',
+                style: `/style.json`,
+                center: [33.350276, 35.154792],
+                zoom: 10,
+            });
+
+            map.addControl(new maplibregl.NavigationControl());
+
+            map.addControl(new maplibregl.ScaleControl({
+                unit: 'metric',
+                maxWidth: 100,
+            }));
+        })();
     </script>
 </body>
 </html>

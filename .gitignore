@@ -3,12 +3,20 @@
 /*.osm.pbf
 /*.pmtiles
 
-/prepare/
-/serve/fonts/
-/serve/tiles/
-/serve/nginx_cache/
-/serve/nginx_logs/
-/serve/static/node_modules/
+/prepare/*
+!/prepare/.keep
+
+/tiles/*
+!/tiles/.keep
+
+/fonts/
+
+/web/node_modules/
+
 /osrm/data/
+
 /nominatim/postgres/
 /nominatim/data/
+
+/nginx_cache/
+/nginx_logs/

@@ -97,17 +97,14 @@ cd ../../..
 ## Подготовка сервера
 
 ```bash
-cd serve
-
 mkdir -m 0777 nginx_cache nginx_logs
 
 git clone "https://github.com/openmaptiles/fonts" fonts
 
-cd static
-
+cd web
 npm install
 
-cd ../..
+cd ..
 ```
 
 ## Запуск сервера
@@ -117,3 +114,14 @@ docker compose up -d
 ```
 
 Открыть http://localhost:8080/
+
+## Правка стилей
+
+Стили карты собираются из слоев, описанных в файлах JSON в каталоге `styles/layers`. `_` перед именем файла отключает его добавление в итоговый файл.
+
+Сборка стиля:
+
+```bash
+cd styles
+php combine_layers.php
+```

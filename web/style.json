@@ -12,11 +12,11 @@
     "sources": {
         "openmaptiles": {
             "type": "vector",
-            "url": "http://localhost:8080/tiles/planet"
+            "url": "/tiles/planet"
         }
     },
-    "sprite": "http://localhost:8080/tiles/sprite/glyphs",
-    "glyphs": "http://localhost:8080/tiles/font/{fontstack}/{range}",
+    "sprite": "/tiles/sprite/glyphs",
+    "glyphs": "/tiles/font/{fontstack}/{range}",
     "metadata": {
         "mapbox:autocomposite": false,
         "mapbox:groups": {
@@ -358,7 +358,8 @@
                 [
                     "in",
                     "class",
-                    "zoo"
+                    "zoo",
+                    "theme_park"
                 ]
             ],
             "layout": {
@@ -445,7 +446,148 @@
             }
         },
         {
-            "id": "waterway_tunnel",
+            "id": "landuse-dam",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "landuse",
+            "minzoom": 7,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "hsl(0, 0%, 68%)",
+                "fill-opacity": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "dam"
+                ],
+                [
+                    "==",
+                    "$type",
+                    "Polygon"
+                ]
+            ]
+        },
+        {
+            "id": "landuse-garage",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "landuse",
+            "minzoom": 7,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "hsl(53, 21%, 84%)",
+                "fill-opacity": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "garages"
+                ],
+                [
+                    "==",
+                    "$type",
+                    "Polygon"
+                ]
+            ]
+        },
+        {
+            "id": "landuse-pitch",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "landuse",
+            "minzoom": 7,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "hsl(157, 47%, 80%)",
+                "fill-opacity": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "pitch",
+                    "track"
+                ],
+                [
+                    "==",
+                    "$type",
+                    "Polygon"
+                ]
+            ]
+        },
+        {
+            "id": "landuse-quarry",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "landuse",
+            "minzoom": 7,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "hsl(0, 0%, 83%)",
+                "fill-opacity": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "quarry"
+                ],
+                [
+                    "==",
+                    "$type",
+                    "Polygon"
+                ]
+            ]
+        },
+        {
+            "id": "landuse-retail",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "landuse",
+            "minzoom": 7,
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "hsl(7, 100%, 96%)",
+                "fill-opacity": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "retail"
+                ],
+                [
+                    "==",
+                    "$type",
+                    "Polygon"
+                ]
+            ]
+        },
+        {
+            "id": "waterway-tunnel",
             "type": "line",
             "source": "openmaptiles",
             "source-layer": "waterway",
@@ -2274,7 +2416,7 @@
             }
         },
         {
-            "id": "road_area_pier",
+            "id": "road-area-pier",
             "type": "fill",
             "metadata": [],
             "source": "openmaptiles",
@@ -2301,7 +2443,7 @@
             }
         },
         {
-            "id": "road_pier",
+            "id": "road-pier",
             "type": "line",
             "metadata": [],
             "source": "openmaptiles",
@@ -4685,228 +4827,6 @@
             }
         },
         {
-            "id": "boundary-land-level-4",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "boundary",
-            "minzoom": 2,
-            "filter": [
-                "all",
-                [
-                    ">=",
-                    "admin_level",
-                    3
-                ],
-                [
-                    "<=",
-                    "admin_level",
-                    8
-                ],
-                [
-                    "!=",
-                    "maritime",
-                    1
-                ]
-            ],
-            "layout": {
-                "line-join": "round",
-                "visibility": "visible"
-            },
-            "paint": {
-                "line-color": "#9e9cab",
-                "line-dasharray": [
-                    3,
-                    1,
-                    1,
-                    1
-                ],
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        [
-                            4,
-                            0.4
-                        ],
-                        [
-                            5,
-                            1
-                        ],
-                        [
-                            12,
-                            3
-                        ]
-                    ]
-                }
-            }
-        },
-        {
-            "id": "boundary-land-level-2",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "boundary",
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "admin_level",
-                    2
-                ],
-                [
-                    "!=",
-                    "maritime",
-                    1
-                ],
-                [
-                    "!=",
-                    "disputed",
-                    1
-                ]
-            ],
-            "layout": {
-                "line-cap": "round",
-                "line-join": "round",
-                "visibility": "visible"
-            },
-            "paint": {
-                "line-color": "hsl(248, 7%, 66%)",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.6
-                        ],
-                        [
-                            4,
-                            1.4
-                        ],
-                        [
-                            5,
-                            2
-                        ],
-                        [
-                            12,
-                            8
-                        ]
-                    ]
-                }
-            }
-        },
-        {
-            "id": "boundary-land-disputed",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "boundary",
-            "filter": [
-                "all",
-                [
-                    "!=",
-                    "maritime",
-                    1
-                ],
-                [
-                    "==",
-                    "disputed",
-                    1
-                ]
-            ],
-            "layout": {
-                "line-cap": "round",
-                "line-join": "round",
-                "visibility": "visible"
-            },
-            "paint": {
-                "line-color": "hsl(248, 7%, 70%)",
-                "line-dasharray": [
-                    1,
-                    3
-                ],
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.6
-                        ],
-                        [
-                            4,
-                            1.4
-                        ],
-                        [
-                            5,
-                            2
-                        ],
-                        [
-                            12,
-                            8
-                        ]
-                    ]
-                }
-            }
-        },
-        {
-            "id": "boundary-water",
-            "type": "line",
-            "source": "openmaptiles",
-            "source-layer": "boundary",
-            "minzoom": 4,
-            "filter": [
-                "all",
-                [
-                    "in",
-                    "admin_level",
-                    2,
-                    4
-                ],
-                [
-                    "==",
-                    "maritime",
-                    1
-                ]
-            ],
-            "layout": {
-                "line-cap": "round",
-                "line-join": "round",
-                "visibility": "visible"
-            },
-            "paint": {
-                "line-color": "rgba(154, 189, 214, 1)",
-                "line-opacity": {
-                    "stops": [
-                        [
-                            6,
-                            0.6
-                        ],
-                        [
-                            10,
-                            1
-                        ]
-                    ]
-                },
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.6
-                        ],
-                        [
-                            4,
-                            1.4
-                        ],
-                        [
-                            5,
-                            2
-                        ],
-                        [
-                            12,
-                            8
-                        ]
-                    ]
-                }
-            }
-        },
-        {
             "id": "waterway-name",
             "type": "symbol",
             "source": "openmaptiles",
@@ -5143,7 +5063,7 @@
             }
         },
         {
-            "id": "road_oneway",
+            "id": "road-oneway",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "transportation",
@@ -5192,7 +5112,7 @@
             }
         },
         {
-            "id": "road_oneway_opposite",
+            "id": "road-oneway-opposite",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "transportation",
@@ -5998,424 +5918,7 @@
             }
         },
         {
-            "id": "place-state",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "filter": [
-                "in",
-                "class",
-                "state"
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Bold"
-                ],
-                "text-letter-spacing": 0.1,
-                "text-max-width": 9,
-                "text-size": {
-                    "base": 1.2,
-                    "stops": [
-                        [
-                            12,
-                            10
-                        ],
-                        [
-                            15,
-                            14
-                        ]
-                    ]
-                },
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#633",
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 1.2
-            }
-        },
-        {
-            "id": "place-country-other",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "class",
-                    "country"
-                ],
-                [
-                    ">=",
-                    "rank",
-                    3
-                ],
-                [
-                    "!has",
-                    "iso_a2"
-                ]
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Italic"
-                ],
-                "text-max-width": 6.25,
-                "text-size": {
-                    "stops": [
-                        [
-                            3,
-                            11
-                        ],
-                        [
-                            7,
-                            17
-                        ]
-                    ]
-                },
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#334",
-                "text-halo-blur": 1,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "place-country-3",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "class",
-                    "country"
-                ],
-                [
-                    ">=",
-                    "rank",
-                    3
-                ],
-                [
-                    "has",
-                    "iso_a2"
-                ]
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Bold"
-                ],
-                "text-max-width": 6.25,
-                "text-size": {
-                    "stops": [
-                        [
-                            3,
-                            11
-                        ],
-                        [
-                            7,
-                            17
-                        ]
-                    ]
-                },
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#334",
-                "text-halo-blur": 1,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "place-country-2",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "class",
-                    "country"
-                ],
-                [
-                    "==",
-                    "rank",
-                    2
-                ],
-                [
-                    "has",
-                    "iso_a2"
-                ]
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Bold"
-                ],
-                "text-max-width": 6.25,
-                "text-size": {
-                    "stops": [
-                        [
-                            2,
-                            11
-                        ],
-                        [
-                            5,
-                            17
-                        ]
-                    ]
-                },
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#334",
-                "text-halo-blur": 1,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "place-country-1",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "class",
-                    "country"
-                ],
-                [
-                    "==",
-                    "rank",
-                    1
-                ],
-                [
-                    "has",
-                    "iso_a2"
-                ]
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Bold"
-                ],
-                "text-max-width": 6.25,
-                "text-size": {
-                    "stops": [
-                        [
-                            1,
-                            11
-                        ],
-                        [
-                            4,
-                            17
-                        ]
-                    ]
-                },
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#334",
-                "text-halo-blur": 1,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "place-continent",
-            "type": "symbol",
-            "metadata": {
-                "mapbox:group": "1444849242106.713"
-            },
-            "source": "openmaptiles",
-            "source-layer": "place",
-            "maxzoom": 1,
-            "filter": [
-                "==",
-                "class",
-                "continent"
-            ],
-            "layout": {
-                "text-field": [
-                    "coalesce",
-                    [
-                        "get",
-                        "name:ru"
-                    ],
-                    [
-                        "get",
-                        "name:en"
-                    ],
-                    [
-                        "get",
-                        "name:nonlatin"
-                    ],
-                    [
-                        "get",
-                        "name:latin"
-                    ],
-                    [
-                        "get",
-                        "name"
-                    ]
-                ],
-                "text-font": [
-                    "Noto Sans Bold"
-                ],
-                "text-max-width": 6.25,
-                "text-size": 14,
-                "text-transform": "uppercase",
-                "visibility": "visible"
-            },
-            "paint": {
-                "text-color": "#334",
-                "text-halo-blur": 1,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "House number labels",
+            "id": "house-number-labels",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "housenumber",
@@ -6450,7 +5953,7 @@
             }
         },
         {
-            "id": "Shop",
+            "id": "poi-shop",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -6462,25 +5965,15 @@
                     [
                         "image",
                         [
-                            "match",
-                            [
-                                "get",
-                                "subclass"
-                            ],
-                            "chocolate",
-                            "confectionery",
-                            "wine",
-                            "alcohol",
-                            "kiosk",
-                            "newsagent",
-                            "perfume",
-                            "perfumery",
-                            "wholesale",
-                            "trade",
-                            [
-                                "get",
-                                "subclass"
-                            ]
+                            "get",
+                            "subclass"
+                        ]
+                    ],
+                    [
+                        "image",
+                        [
+                            "get",
+                            "class"
                         ]
                     ],
                     [
@@ -6630,21 +6123,96 @@
                     "in",
                     "class",
                     "alcohol_shop",
+                    "bakery",
+                    "bicycle",
+                    "butcher",
                     "clothing_store",
                     "grocery",
-                    "music",
-                    "shop"
-                ],
-                [
-                    "in",
-                    "subclass",
+                    "hairdresser",
+                    "seafood",
+                    "shop",
+                    "convenience",
+                    "car_repair",
+                    "doityourself",
+                    "hardware",
+                    "kiosk",
+                    "newsagent",
+                    "beauty",
+                    "car_wash",
+                    "alcohol",
+                    "wine",
+                    "furniture",
+                    "florist",
+                    "mobile_phone",
+                    "electronics",
+                    "shoes",
+                    "car_parts",
+                    "greengrocer",
+                    "farm",
+                    "laundry",
+                    "dry_cleaning",
+                    "optician",
+                    "jewelry",
                     "books",
-                    "supermarket"
+                    "gift",
+                    "department_store",
+                    "confectionery",
+                    "chocolate",
+                    "pastry",
+                    "variety_store",
+                    "travel_agency",
+                    "sports",
+                    "chemist",
+                    "computer",
+                    "stationery",
+                    "pet",
+                    "beverages",
+                    "cosmetics",
+                    "perfumery",
+                    "tyres",
+                    "motorcycle",
+                    "garden_centre",
+                    "copyshop",
+                    "toys",
+                    "deli",
+                    "tobacco",
+                    "fishmonger",
+                    "interior_decoration",
+                    "ticket",
+                    "photo",
+                    "photo_studio",
+                    "photography",
+                    "trade",
+                    "wholesale",
+                    "outdoor",
+                    "houseware",
+                    "art",
+                    "paint",
+                    "fabric",
+                    "bookmaker",
+                    "second_hand",
+                    "charity",
+                    "bed",
+                    "medical_supply",
+                    "hifi",
+                    "coffee",
+                    "hearing_aids",
+                    "musical_instrument",
+                    "tea",
+                    "video",
+                    "bag",
+                    "carpet",
+                    "video_games",
+                    "vehicle_inspection",
+                    "dairy",
+                    "driving_school",
+                    "nursing_home",
+                    "childcare"
                 ]
             ]
         },
         {
-            "id": "Waste",
+            "id": "poi-waste",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -6731,7 +6299,7 @@
             ]
         },
         {
-            "id": "Mortuary",
+            "id": "poi-mortuary",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -6814,7 +6382,7 @@
             ]
         },
         {
-            "id": "Education",
+            "id": "poi-education",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -6896,7 +6464,7 @@
             ]
         },
         {
-            "id": "Outdoor",
+            "id": "poi-outdoor",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -6977,12 +6545,27 @@
                     "playground",
                     "stile",
                     "garden",
-                    "gate"
+                    "gate",
+                    "fishing",
+                    "beach_resort",
+                    "dog_park",
+                    "bench",
+                    "shelter",
+                    "drinking_water",
+                    "picnic_site",
+                    "fountain",
+                    "picnic_table",
+                    "caravan_site",
+                    "bbq",
+                    "shower",
+                    "firepit",
+                    "bird_hide",
+                    "viewpoint"
                 ]
             ]
         },
         {
-            "id": "Sport",
+            "id": "poi-sport",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7063,12 +6646,20 @@
                     "stadium",
                     "swimming_pool",
                     "sports_centre",
-                    "water_park"
+                    "water_park",
+                    "fitness_station",
+                    "fitness_centre",
+                    "massage",
+                    "sauna",
+                    "public_bath",
+                    "miniature_golf",
+                    "bowling_alley",
+                    "dance"
                 ]
             ]
         },
         {
-            "id": "Ferry",
+            "id": "poi-ferry",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7157,7 +6748,7 @@
             ]
         },
         {
-            "id": "Food",
+            "id": "poi-food",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7259,7 +6850,7 @@
             ]
         },
         {
-            "id": "Public",
+            "id": "poi-public",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7339,6 +6930,8 @@
                     "in",
                     "class",
                     "atm",
+                    "bank",
+                    "bureau_de_change",
                     "town_hall",
                     "post",
                     "library",
@@ -7346,7 +6939,21 @@
                     "information",
                     "cinema",
                     "theatre",
-                    "fire_station"
+                    "nightclub",
+                    "casino",
+                    "internet_cafe",
+                    "amusement_arcade",
+                    "fire_station",
+                    "post_box",
+                    "post_office",
+                    "parcel_locker",
+                    "telephone",
+                    "phone",
+                    "social_facility",
+                    "courthouse",
+                    "prison",
+                    "embassy",
+                    "consulate"
                 ],
                 [
                     "!=",
@@ -7356,7 +6963,7 @@
             ]
         },
         {
-            "id": "Cultural",
+            "id": "poi-cultural",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7442,7 +7049,9 @@
                     "monument",
                     "art_gallery",
                     "arts_centre",
-                    "gallery"
+                    "gallery",
+                    "public_bookcase",
+                    "artwork"
                 ],
                 [
                     "!in",
@@ -7454,7 +7063,117 @@
             ]
         },
         {
-            "id": "Attraction",
+            "id": "poi-historical",
+            "type": "symbol",
+            "source": "openmaptiles",
+            "source-layer": "poi",
+            "minzoom": 15,
+            "layout": {
+                "icon-allow-overlap": false,
+                "icon-image": [
+                    "coalesce",
+                    [
+                        "image",
+                        [
+                            "get",
+                            "subclass"
+                        ]
+                    ],
+                    [
+                        "image",
+                        [
+                            "get",
+                            "class"
+                        ]
+                    ],
+                    [
+                        "image",
+                        "dot"
+                    ]
+                ],
+                "symbol-sort-key": [
+                    "to-number",
+                    [
+                        "get",
+                        "rank"
+                    ]
+                ],
+                "text-anchor": "top",
+                "text-field": [
+                    "coalesce",
+                    [
+                        "get",
+                        "name:ru"
+                    ],
+                    [
+                        "get",
+                        "name:en"
+                    ],
+                    [
+                        "get",
+                        "name:nonlatin"
+                    ],
+                    [
+                        "get",
+                        "name:latin"
+                    ],
+                    [
+                        "get",
+                        "name"
+                    ]
+                ],
+                "text-font": [
+                    "Open Sans Semibold",
+                    "Noto Sans Bold"
+                ],
+                "text-max-width": 9,
+                "text-offset": [
+                    0,
+                    0.8
+                ],
+                "text-padding": 2,
+                "text-size": {
+                    "stops": [
+                        [
+                            15,
+                            10
+                        ],
+                        [
+                            20,
+                            11
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "icon-halo-blur": 1,
+                "icon-halo-color": "hsl(0, 0%, 100%)",
+                "icon-halo-width": 0.5,
+                "icon-opacity": 1,
+                "text-color": "hsl(37, 87%, 24%)",
+                "text-halo-blur": 0.5,
+                "text-halo-color": "hsl(0, 0%, 100%)",
+                "text-halo-width": 1
+            },
+            "metadata": [],
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "memorial",
+                    "archaeological_site",
+                    "wayside_shrine",
+                    "obelisk",
+                    "statue",
+                    "bust",
+                    "fort"
+                ]
+            ]
+        },
+        {
+            "id": "poi-attraction",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7531,7 +7250,7 @@
             ]
         },
         {
-            "id": "Transport",
+            "id": "poi-transport",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7674,11 +7393,16 @@
                     "car",
                     "fuel",
                     "parking"
+                ],
+                [
+                    "!in",
+                    "subclass",
+                    "car_parts"
                 ]
             ]
         },
         {
-            "id": "Health",
+            "id": "poi-health",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7854,12 +7578,14 @@
                     "hospital",
                     "pharmacy",
                     "dentist",
-                    "veterinary"
+                    "veterinary",
+                    "clinic",
+                    "doctors"
                 ]
             ]
         },
         {
-            "id": "Campsite",
+            "id": "poi-campsite",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -7938,12 +7664,13 @@
                 [
                     "==",
                     "class",
-                    "campsite"
+                    "campsite",
+                    "camp_site"
                 ]
             ]
         },
         {
-            "id": "Accommodation",
+            "id": "poi-accommodation",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8042,12 +7769,20 @@
                 [
                     "==",
                     "class",
-                    "lodging"
+                    "lodging",
+                    "hotel",
+                    "guest_house",
+                    "hostel",
+                    "chalet",
+                    "motel",
+                    "apartment",
+                    "alpine_hut",
+                    "wilderness_hut"
                 ]
             ]
         },
         {
-            "id": "Place of worship",
+            "id": "poi-place-of-worship",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8129,7 +7864,7 @@
             ]
         },
         {
-            "id": "Bus stop",
+            "id": "poi-bus-stop",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8211,11 +7946,16 @@
                     "in",
                     "class",
                     "bus"
+                ],
+                [
+                    "in",
+                    "subclass",
+                    "bus_stop"
                 ]
             ]
         },
         {
-            "id": "Bus station",
+            "id": "poi-bus-station",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8303,7 +8043,7 @@
             ]
         },
         {
-            "id": "Harbor",
+            "id": "poi-harbor",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8382,7 +8122,7 @@
             ]
         },
         {
-            "id": "Mall",
+            "id": "poi-mall",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8470,7 +8210,7 @@
             ]
         },
         {
-            "id": "Train",
+            "id": "poi-train",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8553,7 +8293,96 @@
             ]
         },
         {
-            "id": "Zoo",
+            "id": "poi-local-park",
+            "type": "symbol",
+            "source": "openmaptiles",
+            "source-layer": "poi",
+            "minzoom": 15,
+            "layout": {
+                "symbol-sort-key": [
+                    "to-number",
+                    [
+                        "get",
+                        "rank"
+                    ]
+                ],
+                "symbol-spacing": 150,
+                "text-allow-overlap": false,
+                "text-field": [
+                    "coalesce",
+                    [
+                        "get",
+                        "name:ru"
+                    ],
+                    [
+                        "get",
+                        "name:en"
+                    ],
+                    [
+                        "get",
+                        "name:nonlatin"
+                    ],
+                    [
+                        "get",
+                        "name:latin"
+                    ],
+                    [
+                        "get",
+                        "name"
+                    ]
+                ],
+                "text-font": [
+                    "Open Sans Semibold Italic",
+                    "Noto Sans Italic"
+                ],
+                "text-max-width": {
+                    "stops": [
+                        [
+                            12,
+                            5
+                        ],
+                        [
+                            18,
+                            8
+                        ]
+                    ]
+                },
+                "text-size": {
+                    "stops": [
+                        [
+                            15,
+                            10
+                        ],
+                        [
+                            20,
+                            13
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "hsl(125, 83%, 28%)",
+                "text-halo-blur": 0.5,
+                "text-halo-color": "hsl(0, 0%, 100%)",
+                "text-halo-width": 1
+            },
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "park"
+                ],
+                [
+                    "==",
+                    "subclass",
+                    "park"
+                ]
+            ]
+        },
+        {
+            "id": "poi-zoo",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "poi",
@@ -8642,7 +8471,7 @@
             ]
         },
         {
-            "id": "Volcano peak labels",
+            "id": "mountain-volcano-peak",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "mountain_peak",
@@ -8700,7 +8529,7 @@
             ]
         },
         {
-            "id": "Mountain peak labels",
+            "id": "mountain-peak",
             "type": "symbol",
             "source": "openmaptiles",
             "source-layer": "mountain_peak",

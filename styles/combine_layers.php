@@ -11,11 +11,11 @@ $json = [
     'sources' => [
         'openmaptiles' => [
             'type' => 'vector',
-            'url' => 'http://localhost:8080/tiles/planet',
+            'url' => '/tiles/planet',
         ],
     ],
-    'sprite' => 'http://localhost:8080/tiles/sprite/glyphs',
-    'glyphs' => 'http://localhost:8080/tiles/font/{fontstack}/{range}',
+    'sprite' => '/tiles/sprite/glyphs',
+    'glyphs' => '/tiles/font/{fontstack}/{range}',
     'metadata' => [],
     'layers' => [],
 ];
@@ -30,7 +30,7 @@ $json['metadata'] = $metadata;
 
 $layers = scandir('layers');
 foreach ($layers as $layerFileName) {
-    if (is_dir($layerFileName) || mb_substr($layerFileName, 0, 1, 'utf-8') == '_') {
+    if (is_dir($layerFileName) || substr($layerFileName, 0, 1) == '_') {
         continue;
     }
     $layer = file_get_contents("layers/{$layerFileName}");
@@ -40,4 +40,4 @@ foreach ($layers as $layerFileName) {
 
 //
 
-file_put_contents('style-planet.json', json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+file_put_contents('../web/style.json', json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));

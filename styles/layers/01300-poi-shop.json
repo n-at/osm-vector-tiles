@@ -175,7 +175,6 @@
             "clothing_store",
             "grocery",
             "hairdresser",
-            "music",
             "seafood",
             "shop",
             "convenience",
@@ -255,13 +254,6 @@
             "driving_school",
             "nursing_home",
             "childcare"
-        ],
-        [
-            "in",
-            "subclass",
-            "books",
-            "car_parts",
-            "supermarket"
         ]
     ]
 }
