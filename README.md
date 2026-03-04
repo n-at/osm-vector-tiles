@@ -7,7 +7,7 @@
 + [onthegomap/planetiler](https://github.com/onthegomap/planetiler) для преобразования osm.pbf в pmtiles (Apache-2.0)
 + [maplibre/martin](https://github.com/maplibre/martin) в качестве сервера (Apache-2.0)
 + [maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js) для отображения карты (BSD-3-Clause)
-+ [/openmaptiles/openmaptiles](https://github.com/openmaptiles/openmaptiles) - спецификация и стандартный стиль карты (BSD-3-Clause, CC-BY 4.0)
++ [openmaptiles/openmaptiles](https://github.com/openmaptiles/openmaptiles) - спецификация и стандартный стиль карты (BSD-3-Clause, CC-BY 4.0)
 + [openmaptiles/fonts](https://github.com/openmaptiles/fonts) - шрифты (OFL, Apache-2.0)
 + [openmaptiles/osm-bright-gl-style](https://github.com/openmaptiles/osm-bright-gl-style) - тема и иконки (BSD-3-Clause, CC-BY 4.0)
 + [gravitystorm/openstreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto) - иконки оригинальной темы OSM Carto (CC0)
@@ -24,7 +24,7 @@
 
 ```bash
 mkdir -m 0777 prepare
-wget -O "planetiler.jar" https://github.com/onthegomap/planetiler/releases/latest/download/planetiler.jar
+wget -O "prepare/planetiler.jar" https://github.com/onthegomap/planetiler/releases/latest/download/planetiler.jar
 ```
 
 Для подготовки карты можно выбрать один из регионов (либо скачать нужный с geofabrik.de):
@@ -34,7 +34,7 @@ wget -O "planetiler.jar" https://github.com/onthegomap/planetiler/releases/lates
 # Кипр (для тестирования)
 ###############################################################################
 
-wget -O "cyprus-latest.osm.pbf" "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
+wget -O "prepare/cyprus-latest.osm.pbf" "https://download.geofabrik.de/europe/cyprus-latest.osm.pbf"
 
 docker run -it --rm -v $(pwd)/prepare:/data -w /data \
     eclipse-temurin:21-alpine \
@@ -47,7 +47,7 @@ docker run -it --rm -v $(pwd)/prepare:/data -w /data \
 # Россия, СЗФО
 ###############################################################################
 
-wget -O "russia-szfo-latest.osm.pbf" "https://download.geofabrik.de/russia/northwestern-fed-district-latest.osm.pbf"
+wget -O "prepare/russia-szfo-latest.osm.pbf" "https://download.geofabrik.de/russia/northwestern-fed-district-latest.osm.pbf"
 
 docker run -it --rm -v $(pwd)/prepare:/data -w /data \
     eclipse-temurin:21-alpine \
@@ -60,7 +60,7 @@ docker run -it --rm -v $(pwd)/prepare:/data -w /data \
 # Россия (на geofabrik.de границы до 2022 года)
 ###############################################################################
 
-wget -O "russia-latest.osm.pbf" "https://download.geofabrik.de/russia-latest.osm.pbf"
+wget -O "prepare/russia-latest.osm.pbf" "https://download.geofabrik.de/russia-latest.osm.pbf"
 
 docker run -it --rm -v $(pwd)/prepare:/data -w /data \
     eclipse-temurin:21-alpine \
@@ -73,7 +73,7 @@ docker run -it --rm -v $(pwd)/prepare:/data -w /data \
 # Весь мир
 ###############################################################################
 
-wget -O "planet-latest.osm.pbf" https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
+wget -O "prepare/planet-latest.osm.pbf" https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf
 
 docker run -it --rm -v $(pwd)/prepare:/data -w /data \
     eclipse-temurin:21-alpine \
@@ -123,7 +123,7 @@ git clone "https://github.com/openmaptiles/fonts" fonts
 
 docker run --rm -v $(pwd):/data -w /data/web \
     node:24-alpine \
-    npm  install
+    npm install
 ```
 
 ## Запуск сервера
