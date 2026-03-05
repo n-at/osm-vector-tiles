@@ -1,7 +1,7 @@
 <?php
 
 //Tiles file name without .pmtiles extension
-$TILES_FILE_NAME = 'planet'; 
+$TILES_FILE_NAME = 'cyprus-latest'; 
 
 //Style display name
 $STYLE_NAME = 'Bright';

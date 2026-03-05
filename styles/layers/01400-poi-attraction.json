@@ -6,6 +6,13 @@
     "minzoom": 15,
     "layout": {
         "icon-allow-overlap": false,
+        "icon-image": [
+            "coalesce",
+            [
+                "image",
+                "circle_purple"
+            ]
+        ],
         "symbol-sort-key": [
             "to-number",
             [
@@ -44,7 +51,7 @@
         "text-max-width": 9,
         "text-offset": [
             0,
-            1.2
+            1
         ],
         "text-padding": 2,
         "text-size": {

@@ -9,6 +9,9 @@
     <link rel='stylesheet' href='/node_modules/maplibre-gl/dist/maplibre-gl.css' />
     <script src='/node_modules/maplibre-gl/dist/maplibre-gl.js'></script>
 
+    <link rel="stylesheet" href="node_modules/@maplibre/maplibre-gl-inspect/dist/maplibre-gl-inspect.css">
+    <script src="node_modules/@maplibre/maplibre-gl-inspect/dist/maplibre-gl-inspect.js"></script>
+
     <style>
         body { 
             margin: 0; 
@@ -27,8 +30,8 @@
             const map = new maplibregl.Map({
                 container: 'map',
                 style: `/style.json`,
-                center: [33.350276, 35.154792], //cyprus-latest
-                //center: [28.332792, 57.819307], //russia-szfo-latest
+                //center: [33.350276, 35.154792], //cyprus-latest
+                center: [28.332792, 57.819307], //russia-szfo-latest
                 zoom: 12,
             });
 
@@ -38,6 +41,8 @@
                 unit: 'metric',
                 maxWidth: 100,
             }));
+
+            map.addControl(new MaplibreInspect());
         })();
     </script>
 </body>
